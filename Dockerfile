@@ -13,6 +13,4 @@ VOLUME ./public /var/www
 # expose both the HTTP (80) and HTTPS (443) ports
 EXPOSE 80 443
 
-
-
 CMD ["nginx"]
