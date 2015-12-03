@@ -8,7 +8,7 @@ RUN mkdir /etc/nginx/ssl
 COPY ./.docker/default /etc/nginx/sites-enabled/default
 COPY ./.docker/default-ssl /etc/nginx/sites-available/default-ssl
 
-VOLUME ./public /var/www
+COPY ./public /var/www
 
 # expose both the HTTP (80) and HTTPS (443) ports
 EXPOSE 80 443
