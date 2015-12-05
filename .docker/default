@@ -3,7 +3,6 @@ server {
   root /var/www;
   index index.html index.htm;
 
-  # Make site accessible from http://localhost/
   server_name tuely.com;
 
   # Add 1 day expires header for static assets
