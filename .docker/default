@@ -1,9 +1,9 @@
 server {
-  # listen 5000;
+  listen 5000;
   root /var/www;
   index index.html index.htm;
 
-  server_name tuely.com;
+  server_name localhost;
 
   # Add 1 day expires header for static assets
   location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
