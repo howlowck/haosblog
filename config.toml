@@ -4,7 +4,7 @@ title = "Hao's Blog @ Tuely"
 paginate = 5
 DisqusShortname = "lifeishao"
 Copyright = "All rights reserved - 2015"
-canonifyurls = true
+canonifyurls = false
 
 [params]
   description = "this is my description"
