@@ -12,3 +12,4 @@ title = "Delivering Hugo with Dokku (and Docker)"
 +++
 
 I'm trying to learn how to use dokku to deploy this hugo site.
+... and it's deployed now!!
