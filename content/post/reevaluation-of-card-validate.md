@@ -12,7 +12,7 @@ title = "Thoughts on Card Validate"
 
 +++
 
-I was looking at a small package that I wrote a few years ago, and I think it's a good mental exercise to reevaluate my own code once in a while.
+I was looking at [a small package](https://www.npmjs.com/package/card-validate) that I wrote a few years ago, and I think it's a good mental exercise to reevaluate my own code once in a while.
 
 ## Background
 

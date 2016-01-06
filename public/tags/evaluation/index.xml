@@ -91,7 +91,7 @@ protected function getResourceArray(NotifyDTO $dto) {
       <guid>http://tuely.com/thoughts-on-card-validate/</guid>
       <description>
 
-&lt;p&gt;I was looking at a small package that I wrote a few years ago, and I think it&amp;rsquo;s a good mental exercise to reevaluate my own code once in a while.&lt;/p&gt;
+&lt;p&gt;I was looking at &lt;a href=&#34;https://www.npmjs.com/package/card-validate&#34;&gt;a small package&lt;/a&gt; that I wrote a few years ago, and I think it&amp;rsquo;s a good mental exercise to reevaluate my own code once in a while.&lt;/p&gt;
 
 &lt;h2 id=&#34;background:8cb4ae0fcc3fdc7943718cd240ce8227&#34;&gt;Background&lt;/h2&gt;
 
