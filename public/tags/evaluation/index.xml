@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Evaluation on Hao&#39;s Blog @ Tuely</title>
-    <link>http://localhost:1313/tags/evaluation/</link>
+    <link>http://tuely.com/tags/evaluation/</link>
     <description>Recent content in Evaluation on Hao&#39;s Blog @ Tuely</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>All rights reserved - 2015</copyright>
     <lastBuildDate>Tue, 05 Jan 2016 14:51:45 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/evaluation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://tuely.com/tags/evaluation/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Power of Transformers (not these robots ↑)</title>
-      <link>http://localhost:1313/power-of-transformers/</link>
+      <link>http://tuely.com/power-of-transformers/</link>
       <pubDate>Tue, 05 Jan 2016 14:51:45 -0600</pubDate>
       
-      <guid>http://localhost:1313/power-of-transformers/</guid>
+      <guid>http://tuely.com/power-of-transformers/</guid>
       <description>
 
 &lt;p&gt;About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office.  While the main functionalities were finalized, the app&amp;rsquo;s development was still in its infancy.  This means that the API&amp;rsquo;s output and how it would be best-suited for the app&amp;rsquo;s consumption was still very much undefined.&lt;/p&gt;
@@ -85,10 +85,10 @@ protected function getResourceArray(NotifyDTO $dto) {
     
     <item>
       <title>Thoughts on Card Validate</title>
-      <link>http://localhost:1313/thoughts-on-card-validate/</link>
+      <link>http://tuely.com/thoughts-on-card-validate/</link>
       <pubDate>Tue, 05 Jan 2016 13:57:34 -0600</pubDate>
       
-      <guid>http://localhost:1313/thoughts-on-card-validate/</guid>
+      <guid>http://tuely.com/thoughts-on-card-validate/</guid>
       <description>
 
 &lt;p&gt;I was looking at a small package that I wrote a few years ago, and I think it&amp;rsquo;s a good mental exercise to reevaluate my own code once in a while.&lt;/p&gt;
