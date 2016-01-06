@@ -5,30 +5,24 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  	<meta property="og:title" content=" Delivering Hugo with Dokku (and Docker) &middot;  Hao&#39;s Blog @ Tuely" />
+  	<meta property="og:title" content=" Power of Transformers (not these robots ↑) &middot;  Hao&#39;s Blog @ Tuely" />
   	<meta property="og:site_name" content="Hao&#39;s Blog @ Tuely" />
-  	<meta property="og:url" content="http://localhost:1313/delivering-hugo/" />
+  	<meta property="og:url" content="http://localhost:1313/power-of-transformers/" />
 
     
   	<meta property="og:type" content="article" />
 
-    <meta property="og:article:published_time" content="2015-12-03T13:50:55-06:00" />
+    <meta property="og:article:published_time" content="2016-01-05T14:51:45-06:00" />
 
     
-    <meta property="og:article:tag" content="dokku" />
+    <meta property="og:article:tag" content="response" />
     
-    <meta property="og:article:tag" content="hugo" />
-    
-    <meta property="og:article:tag" content="deployment" />
-    
-    <meta property="og:article:tag" content="deploy" />
-    
-    <meta property="og:article:tag" content="docker" />
+    <meta property="og:article:tag" content="evaluation" />
     
     
 
   <title>
-     Delivering Hugo with Dokku (and Docker) &middot;  Hao&#39;s Blog @ Tuely
+     Power of Transformers (not these robots ↑) &middot;  Hao&#39;s Blog @ Tuely
   </title>
 
     <meta name="description" content="this is my description" />
@@ -52,7 +46,7 @@
     
     <meta name="generator" content="Hugo 0.14" />
 
-    <link rel="canonical" href="http://localhost:1313/delivering-hugo/" />
+    <link rel="canonical" href="http://localhost:1313/power-of-transformers/" />
 
     
     <script>
@@ -119,8 +113,8 @@
 
 
 
-<header class="main-header post-head no-cover">
-  <nav class="main-nav clearfix">
+<header class="main-header post-head" style="background-image: url(http://localhost:1313/img/transformers-1.jpg)">
+  <nav class="main-nav overlay clearfix">
 
 
   
@@ -140,32 +134,88 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">Delivering Hugo with Dokku (and Docker)</h1>
+        <h1 class="post-title">Power of Transformers (not these robots ↑)</h1>
         <small></small>
 
         <section class="post-meta">
         
-          <time class="post-date" datetime="2015-12-03T13:50:55-06:00">
-            Dec 3, 2015
+          <time class="post-date" datetime="2016-01-05T14:51:45-06:00">
+            Jan 5, 2016
           </time>
         
          
-          <span class="post-tag small"><a href="http://localhost:1313/tags/dokku/">#dokku</a></span>
+          <span class="post-tag small"><a href="http://localhost:1313/tags/response/">#response</a></span>
          
-          <span class="post-tag small"><a href="http://localhost:1313/tags/hugo/">#hugo</a></span>
-         
-          <span class="post-tag small"><a href="http://localhost:1313/tags/deployment/">#deployment</a></span>
-         
-          <span class="post-tag small"><a href="http://localhost:1313/tags/deploy/">#deploy</a></span>
-         
-          <span class="post-tag small"><a href="http://localhost:1313/tags/docker/">#docker</a></span>
+          <span class="post-tag small"><a href="http://localhost:1313/tags/evaluation/">#evaluation</a></span>
          
         </section>
     </header>
 
     <section class="post-content">
-      <p>I&rsquo;m trying to learn how to use dokku to deploy this hugo site.
-&hellip; and it&rsquo;s deployed now!!</p>
+      
+
+<p>About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office.  While the main functionalities were finalized, the app&rsquo;s development was still in its infancy.  This means that the API&rsquo;s output and how it would be best-suited for the app&rsquo;s consumption was still very much undefined.</p>
+
+<p>We had to use transformers to separate the API&rsquo;s logic layer from its presentation.</p>
+
+<p>We used a PHP package called <a href="http://fractal.thephpleague.com/">Fractal</a> to create our API presentation layer.</p>
+
+<h2 id="the-code:5d25457a55cef1dc6bf4b4a7e05ab45a">The Code</h2>
+
+<p>Setting up the code to use our transformer is pretty straight forward:</p>
+
+<pre><code class="language-PHP">...
+protected function getResourceArray(NotifyDTO $dto) {
+    $fractal = new Manager();
+    $fractal-&gt;setSerializer(new BareArraySerializer());
+    // using the transformer to create a new fractal item
+    $resource = new Item($dto, new NotifyResourceTransformer);
+    return $fractal-&gt;createData($resource)-&gt;toArray();
+}
+</code></pre>
+
+<p>Here is the transformer itself:</p>
+
+<pre><code class="language-PHP">class NotifyResourceTransformer extends Fractal\TransformerAbstract {
+...
+
+  public function transform(NotifyDTO $notify) {
+    return [
+      'id' =&gt; (int) $notify-&gt;id,
+      'updated_at' =&gt; $notify-&gt;updatedAt-&gt;toRfc2822String(),
+      'created_at' =&gt; $notify-&gt;createdAt-&gt;toRfc2822String(),
+      'client_datetime_utc' =&gt; $notify-&gt;clientDt-&gt;toRfc2822String(),
+      'client_timestamp' =&gt; $notify-&gt;clientDt-&gt;timestamp,
+      'server_datetime_utc' =&gt; $notify-&gt;createdAt-&gt;toRfc2822String(),
+      'token' =&gt; $notify-&gt;token,
+      'origin_lat' =&gt; $notify-&gt;originLatLong-&gt;getLat(),
+      'origin_long' =&gt; $notify-&gt;originLatLong-&gt;getLong(),
+      'destination_lat' =&gt; $notify-&gt;destinationLatLong-&gt;getLat(),
+      'destination_long' =&gt; $notify-&gt;destinationLatLong-&gt;getLong(),
+      'countdown_duration' =&gt; $notify-&gt;countdownSeconds,
+      'expired_server_timestamp' =&gt; $notify-&gt;expiredAt-&gt;timestamp,
+      'remaining_time' =&gt; $this-&gt;calcTimeRemaining($notify-&gt;expiredAt-&gt;timestamp),
+      'contact_name' =&gt; $notify-&gt;contactName,
+      'contact_phone' =&gt; (string) $notify-&gt;contactPhone,
+      'battery' =&gt; $notify-&gt;battery,
+      'message' =&gt; $notify-&gt;message,
+      'return_netid' =&gt; $notify-&gt;returnNetid,
+      'initiated_at' =&gt; is_null($notify-&gt;initiatedAt)
+                         ? null: $notify-&gt;initiatedAt-&gt;toRfc2822String(),
+      'notified_at' =&gt; is_null($notify-&gt;notifiedAt)
+                        ? null: $notify-&gt;notifiedAt-&gt;toRfc2822String(),
+      'canceled_at'=&gt; is_null($notify-&gt;canceledAt)
+                       ? null: $notify-&gt;canceledAt-&gt;toRfc2822String(),
+      'latest_location_id' =&gt; $notify-&gt;latestLocationId,
+		];
+	}
+...
+}
+</code></pre>
+
+<p>Fractal passes the Data Transfer Object (DTO) to the transformer to create an item.  This item is able to be outputted as various formats, ie XML, json, array, etc.</p>
+
+<p>Enabling a transformer to transform an unchangeable data structure to an ever-changing output format proved to be invaluable for us.  One my colleague wanted the date format to change, it was literally one line of change without me worrying if other parts of my API application was needing the older format.</p>
 
     </section>
 
@@ -197,19 +247,19 @@
     
 <section class="share">
   <h4>Share this post</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Delivering%20Hugo%20with%20Dokku%20%28and%20Docker%29&amp;url=http%3a%2f%2flocalhost%3a1313%2fdelivering-hugo%2f"
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Power%20of%20Transformers%20%28not%20these%20robots%20%e2%86%91%29&amp;url=http%3a%2f%2flocalhost%3a1313%2fpower-of-transformers%2f"
       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
       <span class="hidden">Twitter</span>
   </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fdelivering-hugo%2f"
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fpower-of-transformers%2f"
       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
       <span class="hidden">Facebook</span>
   </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fdelivering-hugo%2f&amp;description=Delivering%20Hugo%20with%20Dokku%20%28and%20Docker%29"
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fpower-of-transformers%2f&amp;description=Power%20of%20Transformers%20%28not%20these%20robots%20%e2%86%91%29"
       onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
       <span class="hidden">Pinterest</span>
   </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%3a1313%2fdelivering-hugo%2f"
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%3a1313%2fpower-of-transformers%2f"
      onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
       <span class="hidden">Google+</span>
   </a>
@@ -222,7 +272,7 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = 'lifeishao';
-  var disqus_url = 'http:\/\/localhost:1313\/delivering-hugo\/';
+  var disqus_url = 'http:\/\/localhost:1313\/power-of-transformers\/';
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

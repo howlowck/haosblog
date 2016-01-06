@@ -20,7 +20,7 @@ canonifyurls = false
   # facebookName = ""
   # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
   hideHUGOSupport = true
-
+  customHeaderPartial = "header.includes.html"
 [permalinks]
   post = "/:slug/"
 
@@ -45,4 +45,4 @@ canonifyurls = false
   name = "Keybase (secure msg)"
   weight = 109
   pre = "<h3>Contact me</h3>"
-  url = "https://Keybase.io/hao"
+  url = "https://Keybase.io/howlowck"

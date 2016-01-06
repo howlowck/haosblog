@@ -5,30 +5,24 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  	<meta property="og:title" content=" Delivering Hugo with Dokku (and Docker) &middot;  Hao&#39;s Blog @ Tuely" />
+  	<meta property="og:title" content=" Thoughts on Card Validate &middot;  Hao&#39;s Blog @ Tuely" />
   	<meta property="og:site_name" content="Hao&#39;s Blog @ Tuely" />
-  	<meta property="og:url" content="http://localhost:1313/delivering-hugo/" />
+  	<meta property="og:url" content="http://localhost:1313/thoughts-on-card-validate/" />
 
     
   	<meta property="og:type" content="article" />
 
-    <meta property="og:article:published_time" content="2015-12-03T13:50:55-06:00" />
+    <meta property="og:article:published_time" content="2016-01-05T13:57:34-06:00" />
 
     
-    <meta property="og:article:tag" content="dokku" />
+    <meta property="og:article:tag" content="response" />
     
-    <meta property="og:article:tag" content="hugo" />
-    
-    <meta property="og:article:tag" content="deployment" />
-    
-    <meta property="og:article:tag" content="deploy" />
-    
-    <meta property="og:article:tag" content="docker" />
+    <meta property="og:article:tag" content="evaluation" />
     
     
 
   <title>
-     Delivering Hugo with Dokku (and Docker) &middot;  Hao&#39;s Blog @ Tuely
+     Thoughts on Card Validate &middot;  Hao&#39;s Blog @ Tuely
   </title>
 
     <meta name="description" content="this is my description" />
@@ -52,7 +46,7 @@
     
     <meta name="generator" content="Hugo 0.14" />
 
-    <link rel="canonical" href="http://localhost:1313/delivering-hugo/" />
+    <link rel="canonical" href="http://localhost:1313/thoughts-on-card-validate/" />
 
     
     <script>
@@ -140,32 +134,92 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">Delivering Hugo with Dokku (and Docker)</h1>
+        <h1 class="post-title">Thoughts on Card Validate</h1>
         <small></small>
 
         <section class="post-meta">
         
-          <time class="post-date" datetime="2015-12-03T13:50:55-06:00">
-            Dec 3, 2015
+          <time class="post-date" datetime="2016-01-05T13:57:34-06:00">
+            Jan 5, 2016
           </time>
         
          
-          <span class="post-tag small"><a href="http://localhost:1313/tags/dokku/">#dokku</a></span>
+          <span class="post-tag small"><a href="http://localhost:1313/tags/response/">#response</a></span>
          
-          <span class="post-tag small"><a href="http://localhost:1313/tags/hugo/">#hugo</a></span>
-         
-          <span class="post-tag small"><a href="http://localhost:1313/tags/deployment/">#deployment</a></span>
-         
-          <span class="post-tag small"><a href="http://localhost:1313/tags/deploy/">#deploy</a></span>
-         
-          <span class="post-tag small"><a href="http://localhost:1313/tags/docker/">#docker</a></span>
+          <span class="post-tag small"><a href="http://localhost:1313/tags/evaluation/">#evaluation</a></span>
          
         </section>
     </header>
 
     <section class="post-content">
-      <p>I&rsquo;m trying to learn how to use dokku to deploy this hugo site.
-&hellip; and it&rsquo;s deployed now!!</p>
+      
+
+<p>I was looking at a small package that I wrote a few years ago, and I think it&rsquo;s a good mental exercise to reevaluate my own code once in a while.</p>
+
+<h2 id="background:8cb4ae0fcc3fdc7943718cd240ce8227">Background</h2>
+
+<p>The purpose of the package is to quickly check for the type of credit card given a small sample (say as a user is typing).  Also validate the credit card again the Luhn algorithm which is the algorithm used by most CC companies.</p>
+
+<h2 id="structure:8cb4ae0fcc3fdc7943718cd240ce8227">Structure</h2>
+
+<p>I separated the CardVal object and the Card Class into two separate files, respectively: <a href="https://github.com/howlowck/card-validate/blob/master/public/js/main.js">main.js</a>, and <a href="https://github.com/howlowck/card-validate/blob/master/public/js/Card.js">Card.js</a>.  Main.js also acts as the initialization file.</p>
+
+<h2 id="what-i-could-have-done-differently-now:8cb4ae0fcc3fdc7943718cd240ce8227">What I could have done differently now</h2>
+
+<p>The <a href="https://github.com/howlowck/card-validate/blob/master/public/js/main.js#L66">CardVal object</a> is a simple object.  This made sense when I was first writing the package, because the object acts as a simple singleton.  However, this inhibits the user from modifying various aspects of the CardVal.  For example, if the user&rsquo;s website only accepts Visa, Discover, and Amex, and does not care about the other, there isn&rsquo;t an elegant way to do so (unless overwriting the cards property).</p>
+
+<p>Now I would write the CardVal as a factory method instead of a simple object:</p>
+
+<pre><code class="language-javascript">function detectTypesFunc(cardNum) {
+    ...
+}
+
+function validateNumberFunc(cardNum) {
+    ...
+}
+
+function validationOutputFunc(card) {
+    ...
+}
+
+var CardValClass = function (options) {
+    this.cards = options.cards;
+}
+
+CardValClass.prototype.detectType = detectTypesFunc;
+CardValClass.prototype.validateNumber = validateNumberFunc;
+CardValClass.prototype.validationOutput = validationOutputFunc;
+
+function getCard(cardName) {
+  var cardDictionary = {
+    visa: visa,
+    master: master,
+    ...
+  }
+  return cardDictionary[cardName];
+}
+
+// CardVal is now a factory method for instantiating a CardValClass
+
+var CardVal = function (options) {
+  options = options || {};
+
+  // Set the default value
+  var cardsList = options.cards ||
+  ['visa', 'discover', 'jcb', 'amex', 'master', 'diners', 'diners-us'];
+  var cards = [];
+  options.cards.forEach(function (cardName) {
+    cards.push(getCard(cardName));
+  });
+  return new CardValClass({cards: cards});
+}
+
+</code></pre>
+
+<p>Now, this allows the user to input options.</p>
+
+<pre><code class="language-javascript">var CardVal = require('card-validate')({cards: ['visa', 'master']});
+</code></pre>
 
     </section>
 
@@ -197,19 +251,19 @@
     
 <section class="share">
   <h4>Share this post</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Delivering%20Hugo%20with%20Dokku%20%28and%20Docker%29&amp;url=http%3a%2f%2flocalhost%3a1313%2fdelivering-hugo%2f"
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Thoughts%20on%20Card%20Validate&amp;url=http%3a%2f%2flocalhost%3a1313%2fthoughts-on-card-validate%2f"
       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
       <span class="hidden">Twitter</span>
   </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fdelivering-hugo%2f"
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fthoughts-on-card-validate%2f"
       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
       <span class="hidden">Facebook</span>
   </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fdelivering-hugo%2f&amp;description=Delivering%20Hugo%20with%20Dokku%20%28and%20Docker%29"
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fthoughts-on-card-validate%2f&amp;description=Thoughts%20on%20Card%20Validate"
       onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
       <span class="hidden">Pinterest</span>
   </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%3a1313%2fdelivering-hugo%2f"
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%3a1313%2fthoughts-on-card-validate%2f"
      onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
       <span class="hidden">Google+</span>
   </a>
@@ -222,7 +276,7 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = 'lifeishao';
-  var disqus_url = 'http:\/\/localhost:1313\/delivering-hugo\/';
+  var disqus_url = 'http:\/\/localhost:1313\/thoughts-on-card-validate\/';
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tag2 on Hao&#39;s Blog @ Tuely</title>
+    <link>http://localhost:1313/tags/tag2/</link>
+    <description>Recent content in Tag2 on Hao&#39;s Blog @ Tuely</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2015</copyright>
+    <lastBuildDate>Tue, 05 Jan 2016 13:57:34 -0600</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tag2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Reevaluation of Card Validate</title>
+      <link>http://localhost:1313/post-title/</link>
+      <pubDate>Tue, 05 Jan 2016 13:57:34 -0600</pubDate>
+      
+      <guid>http://localhost:1313/post-title/</guid>
+      <description>
+
+&lt;p&gt;I was looking at a small package that I wrote a few years ago, and I think it&amp;rsquo;s a good mental exercise to reevaluate my own code once in a while.&lt;/p&gt;
+
+&lt;h2 id=&#34;background:8cb4ae0fcc3fdc7943718cd240ce8227&#34;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;The purpose of the package is to quickly check for the type of credit card given a small sample (say as a user is typing).  Also validate the credit card again the Luhn algorithm which is the algorithm used by most CC companies.&lt;/p&gt;
+
+&lt;h2 id=&#34;structure:8cb4ae0fcc3fdc7943718cd240ce8227&#34;&gt;Structure&lt;/h2&gt;
+
+&lt;p&gt;I separated the CardVal object and the Card Class into two separate files, respectively: &lt;a href=&#34;https://github.com/howlowck/card-validate/blob/master/public/js/main.js&#34;&gt;main.js&lt;/a&gt;, and &lt;a href=&#34;https://github.com/howlowck/card-validate/blob/master/public/js/Card.js&#34;&gt;Card.js&lt;/a&gt;.  Main.js also acts as the initialization file.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-i-could-have-done-differently-now:8cb4ae0fcc3fdc7943718cd240ce8227&#34;&gt;What I could have done differently now&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://github.com/howlowck/card-validate/blob/master/public/js/main.js#L66&#34;&gt;CardVal object&lt;/a&gt; is a simple object.  This made sense when I was first writing the framework, because the object acts as a simple singleton.  However, this inhibits the user from modifying various aspects of the CardVal.  For example, if the user&amp;rsquo;s website only accepts Visa, Discover, and Amex, and does not care about the other, there isn&amp;rsquo;t an elegant way to do so (unless overwriting the cards property).&lt;/p&gt;
+
+&lt;p&gt;Now I would write the CardVal as a factory method instead of a simple object:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function detectTypesFunc(cardNum) {
+    ...
+}
+
+function validateNumberFunc(cardNum) {
+    ...
+}
+
+function validationOutputFunc(card) {
+    ...
+}
+
+var CardValClass = function (options) {
+    this.cards = options.cards;
+}
+
+CardValClass.prototype.detectType = detectTypesFunc;
+CardValClass.prototype.validateNumber = validateNumberFunc;
+CardValClass.prototype.validationOutput = validationOutputFunc;
+
+function getCard(cardName) {
+  var cardDictionary = {
+    visa: visa,
+    master: master,
+    ...
+  }
+  return cardDictionary[cardName];
+}
+
+var CardVal = function (options) {
+  options = options || {};
+  
+  // Set the default value
+  var cardsList = options.cards ||
+  [&#39;visa&#39;, &#39;discover&#39;, &#39;jcb&#39;, &#39;amex&#39;, &#39;master&#39;, &#39;diners&#39;, &#39;diners-us&#39;];
+  var cards = [];
+  options.cards.forEach(function (cardName) {
+    cards.push(getCard(cardName));
+  });
+  return new CardValClass({cards: cards});
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, this allows the user to input options.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var CardVal = require(&#39;card-validate&#39;)({cards: [&#39;visa&#39;, &#39;master&#39;]});
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
