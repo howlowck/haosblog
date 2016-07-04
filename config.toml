@@ -1,9 +1,9 @@
-baseurl = "http://tuely.com/"
+baseurl = "https://blog.lifeishao.com/"
 languageCode = "en-us"
-title = "Hao's Blog @ Tuely"
+title = "Hao's Blog"
 paginate = 5
 DisqusShortname = "lifeishao"
-Copyright = "All rights reserved - 2015"
+Copyright = "All rights reserved - 2016"
 canonifyurls = false
 
 [params]
