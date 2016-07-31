@@ -14,6 +14,8 @@ title = "Gre Math Formulas"
 I'm making this for someone I care about.
 
 ## Fractions
+$ a/b * x/y = (a*x) / (b*y) $
+
 $ a/(b/c) = (a*c) / b $
 
 $ (a/b)/c = a/(b*c) $

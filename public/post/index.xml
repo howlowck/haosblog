@@ -23,6 +23,8 @@
 
 &lt;h2 id=&#34;fractions:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Fractions&lt;/h2&gt;
 
+&lt;p&gt;$ a/b * x/y = (a*x) / (b*y) $&lt;/p&gt;
+
 &lt;p&gt;$ a/(b/c) = (a*c) / b $&lt;/p&gt;
 
 &lt;p&gt;$ (a/b)/c = a/(b*c) $&lt;/p&gt;
