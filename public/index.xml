@@ -69,6 +69,8 @@ $ -b*x &amp;lt; -b*y $&lt;/p&gt;
 
 &lt;h3 id=&#34;trapezoid:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Trapezoid&lt;/h3&gt;
 
+&lt;p&gt;A trapezoid has four sides, and at least a set of opposing sides needs to be &lt;strong&gt;parallel&lt;/strong&gt;.  It&amp;rsquo;s also possible that both sets of opposing sides are parallel, it&amp;rsquo;s called a &lt;strong&gt;parallelogram&lt;/strong&gt;.  Yes, rectangles and squares are also considered to be trapezoids (and parallelograms).&lt;/p&gt;
+
 &lt;iframe
   style=&#34;width: 100%; height: 250px;&#34; frameBorder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;
   src=&#34;https://jsfiddle.net/howlowck/8e8u4nau/embedded/result/&#34;&gt;
