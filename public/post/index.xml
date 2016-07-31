@@ -67,13 +67,22 @@ $ -b*x &amp;lt; -b*y $&lt;/p&gt;
 
 &lt;h2 id=&#34;geometry:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Geometry&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Coming Soon&lt;/strong&gt;
-&lt;!-- &lt;iframe
-  style=&#34;width: 100%; height: auto;&#34; frameBorder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;
+&lt;h3 id=&#34;trapezoid:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Trapezoid&lt;/h3&gt;
+
+&lt;iframe
+  style=&#34;width: 100%; height: 250px;&#34; frameBorder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;
   src=&#34;https://jsfiddle.net/howlowck/8e8u4nau/embedded/result/&#34;&gt;
 &lt;/iframe&gt;
 &lt;br&gt;&lt;br&gt;
- --&gt;&lt;/p&gt;
+
+
+&lt;h4 id=&#34;area:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Area:&lt;/h4&gt;
+
+&lt;p&gt;$ A = h*(a+b)/2 $&lt;/p&gt;
+
+&lt;h4 id=&#34;parameter:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Parameter:&lt;/h4&gt;
+
+&lt;p&gt;$ P = a+b+x+y $&lt;/p&gt;
 </description>
     </item>
     

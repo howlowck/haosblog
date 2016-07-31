@@ -52,5 +52,10 @@ $ -b*x < -b*y $
 When you multiply or divide by a **negative** number, you have to **flip the sign**.  This is because basically when you are adding or subtracting the same number, you are moving both sides in the same direction.  When you are multiplying or dividing both sides by a positive number, you are magnifying/reducing both sides.  But when you magnify/reduce by a negative number, you are moving the direction the opposite direction. 
 
 ## Geometry
-**Coming Soon**
-<!-- {{< jsfiddle id="howlowck/8e8u4nau" tabs="result" >}} -->
+### Trapezoid
+{{< jsfiddle id="howlowck/8e8u4nau" tabs="result" height="250px">}}
+#### Area: 
+$ A = h*(a+b)/2 $  
+
+#### Parameter:
+$ P = a+b+x+y $
