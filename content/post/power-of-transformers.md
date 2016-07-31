@@ -9,7 +9,6 @@ share = true
 slug = "power-of-transformers"
 tags = ["response", "evaluation"]
 title = "Power of Transformers (not these robots ↑)"
-
 +++
 
 About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office.  While the main functionalities were finalized, the app's development was still in its infancy.  This means that the API's output and how it would be best-suited for the app's consumption was still very much undefined.

@@ -6,16 +6,83 @@
     <description>Recent content in Posts on Hao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>All rights reserved - 2016</copyright>
-    <lastBuildDate>Tue, 05 Jan 2016 14:51:45 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 30 Jul 2016 13:40:15 -0500</lastBuildDate>
     <atom:link href="https://blog.lifeishao.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Gre Math Formulas</title>
+      <link>https://blog.lifeishao.com/2016/07/30/gre-math-formulas</link>
+      <pubDate>Sat, 30 Jul 2016 13:40:15 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/2016/07/30/gre-math-formulas</guid>
+      <description>
+
+&lt;h1 id=&#34;introduction:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;I&amp;rsquo;m making this for someone I care about.&lt;/p&gt;
+
+&lt;h2 id=&#34;fractions:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Fractions&lt;/h2&gt;
+
+&lt;p&gt;$ a/(b/c) = (a*c) / b $&lt;/p&gt;
+
+&lt;p&gt;$ (a/b)/c = a/(b*c) $&lt;/p&gt;
+
+&lt;p&gt;$ 1/(1/y) = y $&lt;/p&gt;
+
+&lt;p&gt;$ 1/(a/b) = b/a $&lt;/p&gt;
+
+&lt;h2 id=&#34;factors:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Factors&lt;/h2&gt;
+
+&lt;p&gt;$ (a + b) (a - b) = a^2 - b^2 $&lt;/p&gt;
+
+&lt;h2 id=&#34;fractals:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Fractals&lt;/h2&gt;
+
+&lt;p&gt;$ a^b * a^c = a^(b+c) $&lt;/p&gt;
+
+&lt;p&gt;$ (a^b)^x = a^(b*x) $&lt;/p&gt;
+
+&lt;p&gt;$ a^0 = 1 $ (when $ a != 0 $)&lt;/p&gt;
+
+&lt;p&gt;$ (a^b)/(a^c) = a^(b-c) $&lt;/p&gt;
+
+&lt;p&gt;$ a^-b = 1/a^b $&lt;/p&gt;
+
+&lt;p&gt;$ (ab)^x = a^x*b^x $&lt;/p&gt;
+
+&lt;p&gt;$ (x / y) ^ a = x^a/y^a $&lt;/p&gt;
+
+&lt;h2 id=&#34;inequalities:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Inequalities&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;memorize:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Memorize:&lt;/h4&gt;
+
+&lt;p&gt;$ x &amp;gt; y $&lt;br /&gt;
+⬇️&lt;br /&gt;
+$ a*x &amp;gt; a*y $&lt;br /&gt;
+⬇️&lt;br /&gt;
+$ -b*x &amp;lt; -b*y $&lt;/p&gt;
+
+&lt;p&gt;When you multiply or divide by a &lt;strong&gt;negative&lt;/strong&gt; number, you have to &lt;strong&gt;flip the sign&lt;/strong&gt;.  This is because basically when you are adding or subtracting the same number, you are moving both sides in the same direction.  When you are multiplying or dividing both sides by a positive number, you are magnifying/reducing both sides.  But when you magnify/reduce by a negative number, you are moving the direction the opposite direction.&lt;/p&gt;
+
+&lt;h2 id=&#34;geometry:05ccf64fdbcac629f8fd09f1d81c74b5&#34;&gt;Geometry&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Coming Soon&lt;/strong&gt;
+&lt;!-- &lt;iframe
+  style=&#34;width: 100%; height: auto;&#34; frameBorder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;
+  src=&#34;https://jsfiddle.net/howlowck/8e8u4nau/embedded/result/&#34;&gt;
+&lt;/iframe&gt;
+&lt;br&gt;&lt;br&gt;
+ --&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Power of Transformers (not these robots ↑)</title>
-      <link>https://blog.lifeishao.com/power-of-transformers/</link>
+      <link>https://blog.lifeishao.com/2016/01/05/power-of-transformers</link>
       <pubDate>Tue, 05 Jan 2016 14:51:45 -0600</pubDate>
       
-      <guid>https://blog.lifeishao.com/power-of-transformers/</guid>
+      <guid>https://blog.lifeishao.com/2016/01/05/power-of-transformers</guid>
       <description>
 
 &lt;p&gt;About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office.  While the main functionalities were finalized, the app&amp;rsquo;s development was still in its infancy.  This means that the API&amp;rsquo;s output and how it would be best-suited for the app&amp;rsquo;s consumption was still very much undefined.&lt;/p&gt;
@@ -85,10 +152,10 @@ protected function getResourceArray(NotifyDTO $dto) {
     
     <item>
       <title>Thoughts on Card Validate</title>
-      <link>https://blog.lifeishao.com/thoughts-on-card-validate/</link>
+      <link>https://blog.lifeishao.com/2016/01/05/thoughts-on-card-validate</link>
       <pubDate>Tue, 05 Jan 2016 13:57:34 -0600</pubDate>
       
-      <guid>https://blog.lifeishao.com/thoughts-on-card-validate/</guid>
+      <guid>https://blog.lifeishao.com/2016/01/05/thoughts-on-card-validate</guid>
       <description>
 
 &lt;p&gt;I was looking at &lt;a href=&#34;https://www.npmjs.com/package/card-validate&#34;&gt;a small package&lt;/a&gt; that I wrote a few years ago, and I think it&amp;rsquo;s a good mental exercise to reevaluate my own code once in a while.&lt;/p&gt;
@@ -162,10 +229,10 @@ var CardVal = function (options) {
     
     <item>
       <title>Delivering Hugo with Dokku (and Docker)</title>
-      <link>https://blog.lifeishao.com/delivering-hugo/</link>
+      <link>https://blog.lifeishao.com/2015/12/03/delivering-hugo</link>
       <pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate>
       
-      <guid>https://blog.lifeishao.com/delivering-hugo/</guid>
+      <guid>https://blog.lifeishao.com/2015/12/03/delivering-hugo</guid>
       <description>&lt;p&gt;I&amp;rsquo;m trying to learn how to use dokku to deploy this hugo site.
 &amp;hellip; and it&amp;rsquo;s deployed now!!&lt;/p&gt;
 </description>

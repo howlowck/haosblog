@@ -1,48 +1,95 @@
 baseurl = "https://blog.lifeishao.com/"
 languageCode = "en-us"
 title = "Hao's Blog"
-paginate = 5
-DisqusShortname = "lifeishao"
-Copyright = "All rights reserved - 2016"
-canonifyurls = false
+# Enable comments by entering your Disqus shortname
+disqusShortname = "lifeishao"
+# Enable Google Analytics by entering your tracking code
+googleAnalytics = ""
+# Define the number of posts per page
+paginate = 10
+footnotereturnlinkcontents = "↩"
+theme = "hugo-icarus-theme"
+
+
+[permalinks]
+    post = "/:year/:month/:day/:slug"
+
 
 [params]
-  description = "this is my description"
-  cover = "img/moon_header.jpg"
-  author = "Hao Luo"
-  authorlocation = "Chicago, IL"
-  authorwebsite = "http://lifeishao.com"
-  bio= "I love making things"
-  # logo = "images/logo.png"
-  googleAnalyticsUserID = "UA-70974625-1"
-  githubName = "howlowck"
-  twitterName = "howlowck"
-  # facebookName = ""
-  # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
-  hideHUGOSupport = true
-  customHeaderPartial = "header.includes.html"
-[permalinks]
-  post = "/:slug/"
+    # Tell me who you are
+    author = "Hao Luo"
+    bio = "Jesus Follower, Developer, Technical Evangelist"
+    location = "Chicago, IL"
+    site_description = ""
+    copyright  = "Powered by [Hugo](//gohugo.io)."
+    avatar = "img/me.jpg"
+    logo = "css/images/logo.png"
 
-[[menu.main]]
-  name = "Blog"
-  weight = -120
-  identifier = "blog"
-  url = "/"
+    # Format dates with Go's time formatting
+    date_format = "2006-01-02"
 
-[[menu.main]]
-  name = "Github repos"
-  weight = 100
-  pre = "<h3>Follow me</h3>"
-  url = "https://github.com/howlowck"
+# Create custom menu entries by defining a label and a link for
+# them. Since you can also link posts, you've the option the
+# place the links before or after them.
+#
+# E.g.: "Home" appears before all linked posts in the menu
+# and "Tags" / "Categories" after them.
+[[params.menu]]
+    before = true
+    label  = "Home"
+    link   = "/"
 
-[[menu.main]]
-  name = "Twitter timeline"
-  weight = 101
-  url = "https://twitter.com/howlowck"
+[[params.menu]]
+    before = false
+    label  = "Tags"
+    link   = "tags/"
 
-[[menu.main]]
-  name = "Keybase (secure msg)"
-  weight = 109
-  pre = "<h3>Contact me</h3>"
-  url = "https://Keybase.io/howlowck"
+[[params.menu]]
+    before = false
+    label  = "Categories"
+    link   = "categories/"
+
+# Enter a link for the follow button on the left
+[params.profile]
+    follow_button = "https://twitter.com/howlowck"
+
+
+[social]
+# Add your social network accounts to the profile section on the left
+# by entering your username. The links to your account will be
+# created automatically.
+    github          = "howlowck"
+    gitlab          = ""
+    bitbucket       = ""
+    jsfiddle        = ""
+    codepen         = ""
+    foursquare      = ""
+    dribbble        = ""
+    deviantart      = ""
+    behance         = ""
+    flickr          = ""
+    instagram       = "lifeishao"
+    youtube         = ""
+    vimeo           = ""
+    vine            = ""
+    medium          = ""
+    wordpress       = ""
+    tumblr          = ""
+    xing            = ""
+    linkedin        = "haoluo12"
+    slideshare      = ""
+    stackoverflow   = ""
+    reddit          = ""
+    pinterest       = ""
+    googleplus      = ""
+    facebook        = ""
+    facebook_admin  = ""
+    twitter_domain  = ""
+    twitter         = "howlowck"
+
+# Enable and disable widgets for the right sidebar
+[params.widgets]
+    recent_articles = true
+    categories = true
+    tags = true
+    tag_cloud = true
