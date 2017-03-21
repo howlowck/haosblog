@@ -16,7 +16,7 @@ While Restify is branded as a REST Framework, there are instances where we want 
 
 ## Four lines of Code
 
-If you are looking to serve up static assets from in the root path, and all your assets are in the `public` directory, these are the four lines of code you need.
+If you are looking to serve up static assets from the root path(ie `http://example.com/`), and all your static assets are in the `public` directory, these are the four lines of code you need.
 
 ```js
 server.get(/\/?.*/, restify.serveStatic({
@@ -25,4 +25,4 @@ server.get(/\/?.*/, restify.serveStatic({
 }))
 ```
 
-The important note is you'll need to **put this code snippet as the very last route registration in your app**, otherwise every single GET request will try to serve the asset request (For example, `/api/messages` will cause restify to look for `index.html` under `public/api/messages/`)
+An important note is that you'll need to **put this code snippet as the very last route registration in your app**, otherwise every single GET request will try to serve the asset request (For example, `/api/messages` will cause restify to look for `index.html` under `public/api/messages/`)

@@ -22,7 +22,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="Serving Static Assets in Restify" />
 <meta property="og:description" content="Serving Static Assets in Restify NodeJS While Restify is branded as a REST Framework, there are instances where we want to put a static html along with the API. For example, if we want to serve up the API documentation or built a Bot and serve up an UI.
-Four lines of Code If you are looking to serve up static assets from in the root path, and all your assets are in the public directory, these are the four lines of code you need." />
+Four lines of Code If you are looking to serve up static assets from the root path(ie http://example.com/), and all your static assets are in the public directory, these are the four lines of code you need." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify" />
 
@@ -42,11 +42,11 @@ Four lines of Code If you are looking to serve up static assets from in the root
     
 <meta itemprop="name" content="Serving Static Assets in Restify">
 <meta itemprop="description" content="Serving Static Assets in Restify NodeJS While Restify is branded as a REST Framework, there are instances where we want to put a static html along with the API. For example, if we want to serve up the API documentation or built a Bot and serve up an UI.
-Four lines of Code If you are looking to serve up static assets from in the root path, and all your assets are in the public directory, these are the four lines of code you need.">
+Four lines of Code If you are looking to serve up static assets from the root path(ie http://example.com/), and all your static assets are in the public directory, these are the four lines of code you need.">
 
 
 <meta itemprop="dateModified" content="2017-03-21T17:02:21-05:00" />
-<meta itemprop="wordCount" content="136">
+<meta itemprop="wordCount" content="138">
 
 
 
@@ -60,7 +60,7 @@ Four lines of Code If you are looking to serve up static assets from in the root
 
 <meta name="twitter:title" content="Serving Static Assets in Restify"/>
 <meta name="twitter:description" content="Serving Static Assets in Restify NodeJS While Restify is branded as a REST Framework, there are instances where we want to put a static html along with the API. For example, if we want to serve up the API documentation or built a Bot and serve up an UI.
-Four lines of Code If you are looking to serve up static assets from in the root path, and all your assets are in the public directory, these are the four lines of code you need."/>
+Four lines of Code If you are looking to serve up static assets from the root path(ie http://example.com/), and all your static assets are in the public directory, these are the four lines of code you need."/>
 <meta name="twitter:site" content="@howlowck"/>
 
 
@@ -286,7 +286,7 @@ Four lines of Code If you are looking to serve up static assets from in the root
             <i class="fa fa-calendar"></i>
             <time datetime="2017-03-21 17:02:21 -0500 DST" itemprop="datePublished">2017-03-21</time>
             &middot;
-            136
+            138
             words
             &middot;
             1
@@ -314,7 +314,7 @@ Four lines of Code If you are looking to serve up static assets from in the root
 
 <h2 id="four-lines-of-code">Four lines of Code</h2>
 
-<p>If you are looking to serve up static assets from in the root path, and all your assets are in the <code>public</code> directory, these are the four lines of code you need.</p>
+<p>If you are looking to serve up static assets from the root path(ie <code>http://example.com/</code>), and all your static assets are in the <code>public</code> directory, these are the four lines of code you need.</p>
 
 <pre><code class="language-js">server.get(/\/?.*/, restify.serveStatic({
   directory: './public',
@@ -322,7 +322,7 @@ Four lines of Code If you are looking to serve up static assets from in the root
 }))
 </code></pre>
 
-<p>The important note is you&rsquo;ll need to <strong>put this code snippet as the very last route registration in your app</strong>, otherwise every single GET request will try to serve the asset request (For example, <code>/api/messages</code> will cause restify to look for <code>index.html</code> under <code>public/api/messages/</code>)</p>
+<p>An important note is that you&rsquo;ll need to <strong>put this code snippet as the very last route registration in your app</strong>, otherwise every single GET request will try to serve the asset request (For example, <code>/api/messages</code> will cause restify to look for <code>index.html</code> under <code>public/api/messages/</code>)</p>
 
             </div>
             <footer class="article-footer">

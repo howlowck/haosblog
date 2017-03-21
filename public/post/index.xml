@@ -24,7 +24,7 @@
 
 &lt;h2 id=&#34;four-lines-of-code&#34;&gt;Four lines of Code&lt;/h2&gt;
 
-&lt;p&gt;If you are looking to serve up static assets from in the root path, and all your assets are in the &lt;code&gt;public&lt;/code&gt; directory, these are the four lines of code you need.&lt;/p&gt;
+&lt;p&gt;If you are looking to serve up static assets from the root path(ie &lt;code&gt;http://example.com/&lt;/code&gt;), and all your static assets are in the &lt;code&gt;public&lt;/code&gt; directory, these are the four lines of code you need.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;server.get(/\/?.*/, restify.serveStatic({
   directory: &#39;./public&#39;,
@@ -32,7 +32,7 @@
 }))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The important note is you&amp;rsquo;ll need to &lt;strong&gt;put this code snippet as the very last route registration in your app&lt;/strong&gt;, otherwise every single GET request will try to serve the asset request (For example, &lt;code&gt;/api/messages&lt;/code&gt; will cause restify to look for &lt;code&gt;index.html&lt;/code&gt; under &lt;code&gt;public/api/messages/&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;An important note is that you&amp;rsquo;ll need to &lt;strong&gt;put this code snippet as the very last route registration in your app&lt;/strong&gt;, otherwise every single GET request will try to serve the asset request (For example, &lt;code&gt;/api/messages&lt;/code&gt; will cause restify to look for &lt;code&gt;index.html&lt;/code&gt; under &lt;code&gt;public/api/messages/&lt;/code&gt;)&lt;/p&gt;
 </description>
     </item>
     
