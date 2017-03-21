@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deploy on Hao&#39;s Blog</title>
-    <link>https://blog.lifeishao.com/tags/deploy/</link>
+    <link>https://blog.lifeishao.com/tags/deploy/index.xml</link>
     <description>Recent content in Deploy on Hao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Dec 2015 13:50:55 -0600</lastBuildDate>
+    <copyright>Powered by [Hugo](//gohugo.io).</copyright>
     <atom:link href="https://blog.lifeishao.com/tags/deploy/index.xml" rel="self" type="application/rss+xml" />
     
     <item>

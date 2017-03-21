@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
     <title>Hao&#39;s Blog</title>
-    <meta name="generator" content="Hugo 0.15" />
+    <meta name="generator" content="Hugo 0.18.1" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Hao Luo">
@@ -13,12 +13,14 @@
       <link href="https://blog.lifeishao.com/index.xml" rel="alternate" type="application/rss+xml" title="Hao&#39;s Blog" />
       <link href="https://blog.lifeishao.com/index.xml" rel="feed" type="application/rss+xml" title="Hao&#39;s Blog" />
     
+    <link rel="canonical" href="https://blog.lifeishao.com/"/>
     <link rel="icon" href="https://blog.lifeishao.com/favicon.ico">
-    <link rel="apple-touch-icon" href="https://blog.lifeishao.com/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="https://blog.lifeishao.com/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://blog.lifeishao.com/css/style.css">
     <link rel="stylesheet" href="https://blog.lifeishao.com/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://blog.lifeishao.com/css/monokai.css">
     <link rel="stylesheet" href="https://blog.lifeishao.com/fancybox/jquery.fancybox.css">
+    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="Hao&#39;s Blog" />
@@ -27,7 +29,7 @@
 <meta property="og:url" content="https://blog.lifeishao.com/" />
 
 
-
+<meta property="og:updated_time" content="2017-03-21T17:02:21-05:00"/>
 
 
 
@@ -47,6 +49,9 @@
     
 
     
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -94,10 +99,10 @@
         </nav>
         <div id="search-form-wrap">
           <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
-              <input type="search" name="q" results="0" class="search-form-input" placeholder="Search">
+              <input type="search" name="q" class="search-form-input" placeholder="Search">
               <button type="submit" class="search-form-submit">
               </button>
-              <input type="hidden" name="q" value="site:https://blog.lifeishao.com/">
+              <input type="hidden" name="sitesearch" value="https://blog.lifeishao.com/" />
          </form>
         </div>
     </div>
@@ -131,8 +136,8 @@
           
           <td>
           <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
-          <input type="search" name="q" results="0" class="search-form-input" placeholder="Search">
-          <input type="hidden" name="q" value="site:https://blog.lifeishao.com/">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="https://blog.lifeishao.com/" />
           </form>
         </td>
       </tr>
@@ -158,7 +163,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        4
+        5
         <span>Posts</span>
       </div>
       <div class="article-info-block">
@@ -170,12 +175,11 @@
         </span>
       </div>
     </div>
-    <div class="contact-info profile-block">
-      <table class="contact-list">
+    <div class="profile-block social-links">
+      <table>
         <tr>
           
 <td><a href="//github.com/howlowck" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
-
 
 
 
@@ -250,23 +254,24 @@
             </a>
 
             <header class="article-header">
-    <a href="https://blog.lifeishao.com/2016/07/30/gre-math-formulas">
+    <a href="https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify">
     <h1 class="article-title" itemprop="name">
-        Gre Math Formulas
+        Serving Static Assets in Restify
     </h1>
     </a>
     <div class="article-meta">
+
+        
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-07-30 13:40:15 -0500 CDT" itemprop="datePublished">2016-07-30</time>
+            <time datetime="2017-03-21 17:02:21 -0500 DST" itemprop="datePublished">2017-03-21</time>
             &middot;
-            249
+            136
             words
             &middot;
-            2
+            1
             minute read
         </div>
-
         
         
             
@@ -282,7 +287,145 @@
 
             <div class="article-entry" itemprop="articleBody">
                 <p>
-                    Introduction I&rsquo;m making this for someone I care about. Fractions $ a/b * x/y = (a*x) / (b*y) $ $ a/(b/c) = (a*c) / b $ $ (a/b)/c = a/(b*c) $ $ 1/(1/y) = y $ $ 1/(a/b) = b/a $ Factors $ (a + b) (a - b) = a^2 - b^2 $ Fractals $ a^b * a^c = a^(b+c) $ $ (a^b)^x = a^(b*x) $ $ a^0 = 1 $ (when $ a != 0 $) $ (a^b)/(a^c) = a^(b-c) $ $ a^-b = 1/a^b $ $ (ab)^x = a^x*b^x $ $ (x / y) ^ a = x^a/y^a $ Inequalities Memorize: $ x &gt; y $ ⬇️ $ a*x &gt; a*y $ ⬇️ $ -b*x &lt; -b*y $ When you multiply or divide by a negative number, you have to flip the sign.
+                    Serving Static Assets in Restify NodeJS While Restify is branded as a REST Framework, there are instances where we want to put a static html along with the API. For example, if we want to serve up the API documentation or built a Bot and serve up an UI.
+Four lines of Code If you are looking to serve up static assets from in the root path, and all your assets are in the public directory, these are the four lines of code you need.
+                    <br>
+                </p>
+                <p class="article-more-link">
+                    <a href="https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify">
+                        Read more
+                    </a>
+                </p>
+            </div>
+            <footer class="article-footer">
+    <a data-url="https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify" data-id="7fd0d8f1323b8668dbbacac02400401e" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+        </div>
+    </article>
+    
+    <article class="article article-type-post" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
+            </a>
+
+            <header class="article-header">
+    <a href="https://blog.lifeishao.com/2016/07/30/gre-math-formulas">
+    <h1 class="article-title" itemprop="name">
+        Gre Math Formulas
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2016-07-30 13:40:15 -0500 DST" itemprop="datePublished">2016-07-30</time>
+            &middot;
+            249
+            words
+            &middot;
+            2
+            minute read
+        </div>
+        
+        
+            
+            
+        
+
+        
+            
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                <p>
+                    Introduction I&rsquo;m making this for someone I care about.
+Fractions $ a/b * x/y = (a*x) / (b*y) $
+$ a/(b/c) = (a*c) / b $
+$ (a/b)/c = a/(b*c) $
+$ 1/(1/y) = y $
+$ 1/(a/b) = b/a $
+Factors $ (a + b) (a - b) = a^2 - b^2 $
+Fractals $ a^b * a^c = a^(b+c) $
+$ (a^b)^x = a^(b*x) $
+$ a^0 = 1 $ (when $ a !
                     <br>
                 </p>
                 <p class="article-more-link">
@@ -293,13 +436,79 @@
             </div>
             <footer class="article-footer">
     <a data-url="https://blog.lifeishao.com/2016/07/30/gre-math-formulas" data-id="05ccf64fdbcac629f8fd09f1d81c74b5" class="article-share-link">
+        <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://blog.lifeishao.com/2016/07/30/gre-math-formulas/#disqus_thread" class="article-comment-link">
+    <a href="https://blog.lifeishao.com/2016/07/30/gre-math-formulas#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
 </footer>
 
         </div>
@@ -317,9 +526,11 @@
     </h1>
     </a>
     <div class="article-meta">
+
+        
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-01-05 14:51:45 -0600 CST" itemprop="datePublished">2016-01-05</time>
+            <time datetime="2016-01-05 14:51:45 -0600 STD" itemprop="datePublished">2016-01-05</time>
             &middot;
             309
             words
@@ -327,7 +538,6 @@
             2
             minute read
         </div>
-
         
         
 
@@ -337,8 +547,10 @@
             <div class="article-category">
                 <i class="fa fa-tags"></i>
                 
+                
                 <a class="article-category-link" href="https://blog.lifeishao.com/tags/response">response</a>
                 &middot;
+                
                 
                 <a class="article-category-link" href="https://blog.lifeishao.com/tags/evaluation">evaluation</a>
                 
@@ -351,7 +563,8 @@
 
             <div class="article-entry" itemprop="articleBody">
                 <p>
-                    About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office. While the main functionalities were finalized, the app&rsquo;s development was still in its infancy. This means that the API&rsquo;s output and how it would be best-suited for the app&rsquo;s consumption was still very much undefined. We had to use transformers to separate the API&rsquo;s logic layer from its presentation. We used a PHP package called Fractal to create our API presentation layer.
+                    About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office. While the main functionalities were finalized, the app&rsquo;s development was still in its infancy. This means that the API&rsquo;s output and how it would be best-suited for the app&rsquo;s consumption was still very much undefined.
+We had to use transformers to separate the API&rsquo;s logic layer from its presentation.
                     <br>
                 </p>
                 <p class="article-more-link">
@@ -362,13 +575,79 @@
             </div>
             <footer class="article-footer">
     <a data-url="https://blog.lifeishao.com/2016/01/05/power-of-transformers" data-id="5d25457a55cef1dc6bf4b4a7e05ab45a" class="article-share-link">
+        <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://blog.lifeishao.com/2016/01/05/power-of-transformers/#disqus_thread" class="article-comment-link">
+    <a href="https://blog.lifeishao.com/2016/01/05/power-of-transformers#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
 </footer>
 
         </div>
@@ -386,9 +665,11 @@
     </h1>
     </a>
     <div class="article-meta">
+
+        
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-01-05 13:57:34 -0600 CST" itemprop="datePublished">2016-01-05</time>
+            <time datetime="2016-01-05 13:57:34 -0600 STD" itemprop="datePublished">2016-01-05</time>
             &middot;
             308
             words
@@ -396,7 +677,6 @@
             2
             minute read
         </div>
-
         
         
 
@@ -406,8 +686,10 @@
             <div class="article-category">
                 <i class="fa fa-tags"></i>
                 
+                
                 <a class="article-category-link" href="https://blog.lifeishao.com/tags/response">response</a>
                 &middot;
+                
                 
                 <a class="article-category-link" href="https://blog.lifeishao.com/tags/evaluation">evaluation</a>
                 
@@ -420,7 +702,8 @@
 
             <div class="article-entry" itemprop="articleBody">
                 <p>
-                    I was looking at a small package that I wrote a few years ago, and I think it&rsquo;s a good mental exercise to reevaluate my own code once in a while. Background The purpose of the package is to quickly check for the type of credit card given a small sample (say as a user is typing). Also validate the credit card again the Luhn algorithm which is the algorithm used by most CC companies.
+                    I was looking at a small package that I wrote a few years ago, and I think it&rsquo;s a good mental exercise to reevaluate my own code once in a while.
+Background The purpose of the package is to quickly check for the type of credit card given a small sample (say as a user is typing). Also validate the credit card again the Luhn algorithm which is the algorithm used by most CC companies.
                     <br>
                 </p>
                 <p class="article-more-link">
@@ -431,13 +714,79 @@
             </div>
             <footer class="article-footer">
     <a data-url="https://blog.lifeishao.com/2016/01/05/thoughts-on-card-validate" data-id="8cb4ae0fcc3fdc7943718cd240ce8227" class="article-share-link">
+        <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://blog.lifeishao.com/2016/01/05/thoughts-on-card-validate/#disqus_thread" class="article-comment-link">
+    <a href="https://blog.lifeishao.com/2016/01/05/thoughts-on-card-validate#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
 </footer>
 
         </div>
@@ -455,9 +804,11 @@
     </h1>
     </a>
     <div class="article-meta">
+
+        
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2015-12-03 13:50:55 -0600 CST" itemprop="datePublished">2015-12-03</time>
+            <time datetime="2015-12-03 13:50:55 -0600 STD" itemprop="datePublished">2015-12-03</time>
             &middot;
             18
             words
@@ -465,7 +816,6 @@
             1
             minute read
         </div>
-
         
         
 
@@ -475,17 +825,22 @@
             <div class="article-category">
                 <i class="fa fa-tags"></i>
                 
+                
                 <a class="article-category-link" href="https://blog.lifeishao.com/tags/dokku">dokku</a>
                 &middot;
+                
                 
                 <a class="article-category-link" href="https://blog.lifeishao.com/tags/hugo">hugo</a>
                 &middot;
                 
+                
                 <a class="article-category-link" href="https://blog.lifeishao.com/tags/deployment">deployment</a>
                 &middot;
                 
+                
                 <a class="article-category-link" href="https://blog.lifeishao.com/tags/deploy">deploy</a>
                 &middot;
+                
                 
                 <a class="article-category-link" href="https://blog.lifeishao.com/tags/docker">docker</a>
                 
@@ -509,13 +864,79 @@
             </div>
             <footer class="article-footer">
     <a data-url="https://blog.lifeishao.com/2015/12/03/delivering-hugo" data-id="9385b756163f289fb7855c761b810544" class="article-share-link">
+        <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://blog.lifeishao.com/2015/12/03/delivering-hugo/#disqus_thread" class="article-comment-link">
+    <a href="https://blog.lifeishao.com/2015/12/03/delivering-hugo#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
 </footer>
 
         </div>
@@ -540,9 +961,28 @@
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify" class="title">Serving Static Assets in Restify</a></p>
+                    <p class="item-date">
+                        <time datetime="2017-03-21 17:02:21 -0500 DST" itemprop="datePublished">2017-03-21</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="https://blog.lifeishao.com/2016/07/30/gre-math-formulas" class="thumbnail">
                     
-                        <span style="background-image:url(https://blog.lifeishao.com/)" alt="Hao&#39;s Blog" class="thumbnail-image"></span>
+                        <span class="thumbnail-image thumbnail-none"></span>
                     
                     </a>
                 </div>
@@ -552,7 +992,7 @@
                     
                     <p class="item-title"><a href="https://blog.lifeishao.com/2016/07/30/gre-math-formulas" class="title">Gre Math Formulas</a></p>
                     <p class="item-date">
-                        <time datetime="2016-07-30 13:40:15 -0500 CDT" itemprop="datePublished">2016-07-30</time>
+                        <time datetime="2016-07-30 13:40:15 -0500 DST" itemprop="datePublished">2016-07-30</time>
                     </p>
                 </div>
             </li>
@@ -569,7 +1009,7 @@
                     
                     <p class="item-title"><a href="https://blog.lifeishao.com/2016/01/05/power-of-transformers" class="title">Power of Transformers (not these robots ↑)</a></p>
                     <p class="item-date">
-                        <time datetime="2016-01-05 14:51:45 -0600 CST" itemprop="datePublished">2016-01-05</time>
+                        <time datetime="2016-01-05 14:51:45 -0600 STD" itemprop="datePublished">2016-01-05</time>
                     </p>
                 </div>
             </li>
@@ -586,7 +1026,7 @@
                     
                     <p class="item-title"><a href="https://blog.lifeishao.com/2016/01/05/thoughts-on-card-validate" class="title">Thoughts on Card Validate</a></p>
                     <p class="item-date">
-                        <time datetime="2016-01-05 13:57:34 -0600 CST" itemprop="datePublished">2016-01-05</time>
+                        <time datetime="2016-01-05 13:57:34 -0600 STD" itemprop="datePublished">2016-01-05</time>
                     </p>
                 </div>
             </li>
@@ -603,7 +1043,7 @@
                     
                     <p class="item-title"><a href="https://blog.lifeishao.com/2015/12/03/delivering-hugo" class="title">Delivering Hugo with Dokku (and Docker)</a></p>
                     <p class="item-date">
-                        <time datetime="2015-12-03 13:50:55 -0600 CST" itemprop="datePublished">2015-12-03</time>
+                        <time datetime="2015-12-03 13:50:55 -0600 STD" itemprop="datePublished">2015-12-03</time>
                     </p>
                 </div>
             </li>
@@ -614,6 +1054,7 @@
 
 
     
+
 
 
 
@@ -629,6 +1070,7 @@
         <ul class="category-list">
             
             <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://blog.lifeishao.com/tags/deploy">
                     deploy
                 </a>
@@ -636,6 +1078,7 @@
             </li>
             
             <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://blog.lifeishao.com/tags/deployment">
                     deployment
                 </a>
@@ -643,6 +1086,7 @@
             </li>
             
             <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://blog.lifeishao.com/tags/docker">
                     docker
                 </a>
@@ -650,6 +1094,7 @@
             </li>
             
             <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://blog.lifeishao.com/tags/dokku">
                     dokku
                 </a>
@@ -657,6 +1102,7 @@
             </li>
             
             <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://blog.lifeishao.com/tags/evaluation">
                     evaluation
                 </a>
@@ -664,6 +1110,7 @@
             </li>
             
             <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://blog.lifeishao.com/tags/hugo">
                     hugo
                 </a>
@@ -671,6 +1118,7 @@
             </li>
             
             <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://blog.lifeishao.com/tags/response">
                     response
                 </a>
@@ -683,6 +1131,7 @@
 
 
 
+
     
 
 
@@ -692,17 +1141,24 @@
     </h3>
     <div class="widget tagcloud">
         
+        
         <a href="https://blog.lifeishao.com/tags/deploy" style="font-size: 12px;">deploy</a>
+        
         
         <a href="https://blog.lifeishao.com/tags/deployment" style="font-size: 12px;">deployment</a>
         
+        
         <a href="https://blog.lifeishao.com/tags/docker" style="font-size: 12px;">docker</a>
+        
         
         <a href="https://blog.lifeishao.com/tags/dokku" style="font-size: 12px;">dokku</a>
         
+        
         <a href="https://blog.lifeishao.com/tags/evaluation" style="font-size: 12px;">evaluation</a>
         
+        
         <a href="https://blog.lifeishao.com/tags/hugo" style="font-size: 12px;">hugo</a>
+        
         
         <a href="https://blog.lifeishao.com/tags/response" style="font-size: 12px;">response</a>
         
@@ -712,7 +1168,8 @@
 
 
 
-    <div id="toTop" class="fa fa-chevron-up"></div>
+
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
 
     </div>
@@ -721,34 +1178,29 @@
 <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016
+      &copy; 2017
       Powered by <a href="//gohugo.io">Hugo</a>.
     </div>
   </div>
 </footer>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://blog.lifeishao.com/fancybox/jquery.fancybox.pack.js"></script>
 <script src="https://blog.lifeishao.com/js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+
 <script>hljs.initHighlightingOnLoad();</script>
 
-<!-- MathJax -->
+
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
-  AsciiMath: {
-    fixphi: true,
-    useMathMLspacing: true,
-    displaystyle: false,
-    decimalsign: "."
-  },
-  asciimath2jax: {
-    delimiters: [['$','$']]
-  }
-});
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
 </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
 
 </body>
