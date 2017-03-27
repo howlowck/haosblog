@@ -7,8 +7,147 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Powered by [Hugo](//gohugo.io).</copyright>
-    <lastBuildDate>Tue, 21 Mar 2017 17:02:21 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 24 Mar 2017 17:05:17 -0500</lastBuildDate>
     <atom:link href="https://blog.lifeishao.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Custom NodeJs Deployment on Azure Web App</title>
+      <link>https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app</link>
+      <pubDate>Fri, 24 Mar 2017 17:05:17 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app</guid>
+      <description>
+
+&lt;p&gt;One of the advantages of using Azure Web App is how easy it is to deploy a NodeJS app.  If you have an app as simple as &lt;a href=&#34;https://github.com/howlowck/simplest-restify-on-azure&#34;&gt;this one&lt;/a&gt;, Azure Web App will pick it up, install all the node dependencies, and serve the app on port 80.  And you are done!!!&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, a lot of times, you might want to venture outside the comfort of auto-deploy land, and do some customization.  Maybe your public directory isn&amp;rsquo;t called &lt;code&gt;/public&lt;/code&gt;, or if you want to install &lt;code&gt;yarn&lt;/code&gt; package manager, or install dev-dependencies to build your client-side code.&lt;/p&gt;
+
+&lt;h2 id=&#34;azure-deployment-magic-kudu&#34;&gt;Azure Deployment Magic (Kudu)&lt;/h2&gt;
+
+&lt;p&gt;When you deploy a project on Azure Web App, it is using the Azure&amp;rsquo;s deployment engine called Kudu.  Kudu will look at a couple of things to determine how to deploy your app.  If you have a &lt;code&gt;package.json&lt;/code&gt;, Kudu will think you have a Node App.&lt;/p&gt;
+
+&lt;h3 id=&#34;overall-process&#34;&gt;Overall Process&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;repository&lt;/code&gt; directory changes, Kudu process is triggered&lt;/li&gt;
+&lt;li&gt;Kudu determines that it&amp;rsquo;s a node app&lt;/li&gt;
+&lt;li&gt;If there is no &lt;code&gt;web.config&lt;/code&gt; or &lt;code&gt;iisnode.yml&lt;/code&gt; in your repo, Kudu tries to generate it&lt;/li&gt;
+&lt;li&gt;Kudu tries to figure out the Node version you want&lt;/li&gt;
+&lt;li&gt;If there is no &lt;code&gt;.deployment&lt;/code&gt; in your repo, Kudu generates and runs &lt;code&gt;deploy.cmd&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;the-web-config-file&#34;&gt;The &lt;code&gt;web.config&lt;/code&gt; file&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;web.config&lt;/code&gt; file configures the IIS server.  With this XML-formatted file,  your IIS server knows how to handle a request that hits it.  The most important part of the config file for the Node app is the entry file.&lt;/p&gt;
+
+&lt;p&gt;If you already have a &lt;code&gt;web.config&lt;/code&gt; file in your repo, Kudu will not try to generate a new one, and just load your &lt;code&gt;web.config&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;However, if you don&amp;rsquo;t have a &lt;code&gt;web.config&lt;/code&gt;, Kudu will try to generate one for you.  In order to do that, Kudu needs to know where is the entry file.  Kudu tries to find your entry file in these steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Looks for &lt;code&gt;&amp;quot;scripts&amp;quot;:{&amp;quot;start&amp;quot;:command}&lt;/code&gt; in your &lt;code&gt;package.json&lt;/code&gt;.  Kudu &lt;a href=&#34;https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/selectNodeVersion.js#L153&#34;&gt;assumes&lt;/a&gt; your command is &lt;code&gt;node filename&lt;/code&gt;, so if you are using more robust tools like &lt;a href=&#34;https://www.npmjs.com/package/better-npm-run&#34;&gt;better-npm-run&lt;/a&gt;, this heuristic will break. The script checks to see if the file exists, if it does not, goes to the next step.&lt;/li&gt;
+&lt;li&gt;Looks for &lt;code&gt;app.js&lt;/code&gt; or &lt;code&gt;server.js&lt;/code&gt;, if either exists in the root repo path, Kudu sets it has the entry file.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Once Kudu found the entry file, it generates the &lt;code&gt;web.config&lt;/code&gt; file using &lt;a href=&#34;https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/iisnode.config.template&#34;&gt;this template&lt;/a&gt;.  Notice that it is simply putting the file path into the &lt;code&gt;{NodeStartFile}&lt;/code&gt; string in the template, and letting the &lt;code&gt;iisnode&lt;/code&gt; module handling the request.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-iisnode-yml-file&#34;&gt;The &lt;code&gt;iisnode.yml&lt;/code&gt; file&lt;/h3&gt;
+
+&lt;p&gt;The iisnode.yml is a configuration file that set various settings for the iisnode module.  For the whole list of options you can set &lt;a href=&#34;https://tomasz.janczuk.org/2012/05/yaml-configuration-support-in-iisnode.html&#34;&gt;See this blog post on iisnode.yml&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The important setting is &lt;code&gt;nodeProcessCommandLine&lt;/code&gt; which sets the exact path to the node executable.  &lt;a href=&#34;https://github.com/howlowck/train-faces/blob/master/iisnode.yml&#34;&gt;see this example&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t have a &lt;code&gt;iisnode.yml&lt;/code&gt; file, then Kudu will try to determine your Node Version&lt;/p&gt;
+
+&lt;h3 id=&#34;node-version-for-your-app&#34;&gt;Node Version for your app&lt;/h3&gt;
+
+&lt;p&gt;Kudu needs to know which version of node you want to run your app and deployment.  It will try to find the version you want by following these steps.
+If not satisfied, goes to the next step:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;If there is a &lt;code&gt;iisnode.yml&lt;/code&gt; and &lt;code&gt;nodeProcessCommandLine&lt;/code&gt; property inside: it will run that exact path of node.&lt;/li&gt;
+&lt;li&gt;If in your &lt;code&gt;package.json&lt;/code&gt;, there is an &lt;code&gt;&amp;quot;engines&amp;quot;:{&amp;quot;node&amp;quot;:version}&lt;/code&gt; specification, Azure will use the specified version&lt;/li&gt;
+&lt;li&gt;In Application Settings on the Azure portal, you have &lt;code&gt;WEBSITE_NODE_DEFAULT_VERSION&lt;/code&gt; set as one of the environment variables&lt;/li&gt;
+&lt;li&gt;The default Node version for Azure. The exact version changes over time.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;the-deployment-and-deploy-cmd-file&#34;&gt;The &lt;code&gt;.deployment&lt;/code&gt; and &lt;code&gt;deploy.cmd&lt;/code&gt; file&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;deploy.cmd&lt;/code&gt; is the script that Kudu runs to &amp;ldquo;build&amp;rdquo; your project.&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t have a &lt;code&gt;.deployment&lt;/code&gt; file in your repo, Kudu will assume you want to use the default deployment script for your application.
+This is the &lt;a href=&#34;https://github.com/projectkudu/kudu-deployment-scripts/blob/master/scripts/deploy-node.cmd&#34;&gt;Node Deployment Script (deploy.cmd)&lt;/a&gt; that will run.&lt;/p&gt;
+
+&lt;p&gt;The part of the script we care about is &lt;a href=&#34;https://github.com/projectkudu/kudu-deployment-scripts/blob/master/scripts/deploy-node.cmd#L88-L107&#34;&gt;the Deployment section&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt; The npm install command in the script is  &lt;code&gt;npm install --production&lt;/code&gt;, but even if you delete the &lt;code&gt;--production&lt;/code&gt; flag, NPM will still ignore your dev-dependencies.  This is because when &lt;code&gt;npm install&lt;/code&gt; runs, it looks at your &amp;ldquo;NODE_ENV&amp;rdquo; environment variable, and if it&amp;rsquo;s &amp;ldquo;prod&amp;rdquo; or &amp;ldquo;production&amp;rdquo;, NPM will ignore your dev-dependencies.  Kudu sets your &amp;ldquo;NODE_ENV&amp;rdquo; to &amp;ldquo;production&amp;rdquo; by default.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you want to change your deployment process, you will need to add a &lt;code&gt;.deployment&lt;/code&gt; file with a &amp;ldquo;command&amp;rdquo; config value (&lt;a href=&#34;https://github.com/howlowck/train-faces/blob/master/.deployment&#34;&gt;See example&lt;/a&gt;), and a &lt;code&gt;deploy.cmd&lt;/code&gt; file (&lt;a href=&#34;https://github.com/howlowck/train-faces/blob/master/deploy.cmd&#34;&gt;See example&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&#34;common-deployment-tweaks&#34;&gt;Common Deployment Tweaks&lt;/h2&gt;
+
+&lt;h3 id=&#34;change-node-version&#34;&gt;Change Node Version&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Add &lt;code&gt;&amp;quot;engines&amp;quot;:{&amp;quot;node&amp;quot;:version}&lt;/code&gt; to your package.json file.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;change-public-directory&#34;&gt;Change public directory&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a &lt;code&gt;web.config&lt;/code&gt; file, (&lt;a href=&#34;https://github.com/howlowck/train-faces/blob/master/web.config&#34;&gt;See Example of a web.config&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Change the &lt;code&gt;url&lt;/code&gt; property of the &lt;code&gt;action&lt;/code&gt; node under &lt;code&gt;StaticContent&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;change-entry-file&#34;&gt;Change Entry File&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a &lt;code&gt;web.config&lt;/code&gt; file, (&lt;a href=&#34;https://github.com/howlowck/train-faces/blob/master/web.config&#34;&gt;See Example of a web.config&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Change &lt;code&gt;path&lt;/code&gt; property under the &lt;code&gt;handlers&lt;/code&gt; node&lt;/li&gt;
+&lt;li&gt;Change &lt;code&gt;url&lt;/code&gt; property under the &lt;code&gt;rule name=&amp;quot;NodeInspector&amp;quot;&lt;/code&gt; node&lt;/li&gt;
+&lt;li&gt;Change &lt;code&gt;url&lt;/code&gt; property under the &lt;code&gt;rule name=&amp;quot;DynamicContent&amp;quot;&lt;/code&gt; node&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;OR&lt;/strong&gt; if you don&amp;rsquo;t want to create a custom &lt;code&gt;web.config&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;change your &lt;code&gt;start&lt;/code&gt; script in your &lt;code&gt;package.json&lt;/code&gt; to &lt;code&gt;node example.js&lt;/code&gt; (replace example.js with your entry file)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;install-dev-dependencies&#34;&gt;Install dev dependencies&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a &lt;a href=&#34;https://github.com/howlowck/train-faces/blob/master/.deployment&#34;&gt;&lt;code&gt;.deployment&lt;/code&gt; file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Duplicate a &lt;a href=&#34;https://github.com/projectkudu/kudu-deployment-scripts/blob/master/scripts/deploy-node.cmd&#34;&gt;&lt;code&gt;deploy.cmd&lt;/code&gt; file&lt;/a&gt;, and find the line&lt;br /&gt;
+&lt;code&gt;call :ExecuteCmd !NPM_CMD! install --production&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;call :ExecuteCmd !NPM_CMD! install --only=dev&lt;/code&gt; right after that line.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;tl-dr&#34;&gt;TL;DR&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Azure Web App uses &lt;a href=&#34;https://github.com/projectkudu/kudu&#34;&gt;Kudu&lt;/a&gt; to deploy your app (when using git CI)&lt;/li&gt;
+&lt;li&gt;Kudu &lt;strong&gt;does not&lt;/strong&gt; run your &lt;code&gt;npm start&lt;/code&gt; script.  It might look like it is if your &lt;code&gt;start&lt;/code&gt; script is &lt;code&gt;node server.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If you don&amp;rsquo;t have a &lt;code&gt;web.config&lt;/code&gt;, Kudu will try to generate a &lt;code&gt;web.config&lt;/code&gt; for you with the following steps to get the starter file.
+
+&lt;ul&gt;
+&lt;li&gt;Kudu tries to extract the entry file path from your &lt;code&gt;npm start&lt;/code&gt; script&lt;/li&gt;
+&lt;li&gt;Kudu looks for either a &lt;code&gt;server.js&lt;/code&gt; or &lt;code&gt;app.js&lt;/code&gt; in the root of your repository if &lt;code&gt;npm start&lt;/code&gt; extraction wasn&amp;rsquo;t successful.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;useful-code-references&#34;&gt;Useful Code References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/howlowck/train-faces/blob/master/deploy.cmd&#34;&gt;Default deploy.cmd&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/selectNodeVersion.js&#34;&gt;JS Script that generates your web.config&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/projectkudu/kudu/blob/master/Kudu.Services/Deployment/DeploymentController.cs&#34;&gt;Deployment Controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Deployment/Generator/NodeSiteEnabler.cs&#34;&gt;Node Detector&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Serving Static Assets in Restify</title>

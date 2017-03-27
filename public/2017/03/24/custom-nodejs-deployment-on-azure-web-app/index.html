@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>Power of Transformers (not these robots ↑) &middot; Hao&#39;s Blog</title>
+    <title>Custom NodeJs Deployment on Azure Web App &middot; Hao&#39;s Blog</title>
     <meta name="generator" content="Hugo 0.18.1" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,7 +10,7 @@
       <meta name="description" content="">
     
     
-    <link rel="canonical" href="https://blog.lifeishao.com/2016/01/05/power-of-transformers"/>
+    <link rel="canonical" href="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app"/>
     <link rel="icon" href="https://blog.lifeishao.com/favicon.ico">
     <link rel="apple-touch-icon" href="https://blog.lifeishao.com/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://blog.lifeishao.com/css/style.css">
@@ -20,14 +20,14 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="Power of Transformers (not these robots ↑)" />
-<meta property="og:description" content="About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office. While the main functionalities were finalized, the app&rsquo;s development was still in its infancy. This means that the API&rsquo;s output and how it would be best-suited for the app&rsquo;s consumption was still very much undefined.
-We had to use transformers to separate the API&rsquo;s logic layer from its presentation." />
+    <meta property="og:title" content="Custom NodeJs Deployment on Azure Web App" />
+<meta property="og:description" content="One of the advantages of using Azure Web App is how easy it is to deploy a NodeJS app. If you have an app as simple as this one, Azure Web App will pick it up, install all the node dependencies, and serve the app on port 80. And you are done!!!
+Unfortunately, a lot of times, you might want to venture outside the comfort of auto-deploy land, and do some customization." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.lifeishao.com/2016/01/05/power-of-transformers" />
+<meta property="og:url" content="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app" />
 
 
-<meta property="og:updated_time" content="2016-01-05T14:51:45-06:00"/>
+<meta property="og:updated_time" content="2017-03-24T17:05:17-05:00"/>
 
 
 
@@ -40,13 +40,13 @@ We had to use transformers to separate the API&rsquo;s logic layer from its pres
 
     
     
-<meta itemprop="name" content="Power of Transformers (not these robots ↑)">
-<meta itemprop="description" content="About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office. While the main functionalities were finalized, the app&rsquo;s development was still in its infancy. This means that the API&rsquo;s output and how it would be best-suited for the app&rsquo;s consumption was still very much undefined.
-We had to use transformers to separate the API&rsquo;s logic layer from its presentation.">
+<meta itemprop="name" content="Custom NodeJs Deployment on Azure Web App">
+<meta itemprop="description" content="One of the advantages of using Azure Web App is how easy it is to deploy a NodeJS app. If you have an app as simple as this one, Azure Web App will pick it up, install all the node dependencies, and serve the app on port 80. And you are done!!!
+Unfortunately, a lot of times, you might want to venture outside the comfort of auto-deploy land, and do some customization.">
 
 
-<meta itemprop="dateModified" content="2016-01-05T14:51:45-06:00" />
-<meta itemprop="wordCount" content="309">
+<meta itemprop="dateModified" content="2017-03-24T17:05:17-05:00" />
+<meta itemprop="wordCount" content="959">
 
 
 
@@ -58,9 +58,9 @@ We had to use transformers to separate the API&rsquo;s logic layer from its pres
 
 
 
-<meta name="twitter:title" content="Power of Transformers (not these robots ↑)"/>
-<meta name="twitter:description" content="About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office. While the main functionalities were finalized, the app&rsquo;s development was still in its infancy. This means that the API&rsquo;s output and how it would be best-suited for the app&rsquo;s consumption was still very much undefined.
-We had to use transformers to separate the API&rsquo;s logic layer from its presentation."/>
+<meta name="twitter:title" content="Custom NodeJs Deployment on Azure Web App"/>
+<meta name="twitter:description" content="One of the advantages of using Azure Web App is how easy it is to deploy a NodeJS app. If you have an app as simple as this one, Azure Web App will pick it up, install all the node dependencies, and serve the app on port 80. And you are done!!!
+Unfortunately, a lot of times, you might want to venture outside the comfort of auto-deploy land, and do some customization."/>
 <meta name="twitter:site" content="@howlowck"/>
 
 
@@ -272,13 +272,13 @@ We had to use transformers to separate the API&rsquo;s logic layer from its pres
     <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
         <div class="article-inner">
             
-                <img src="https://blog.lifeishao.com/img/transformers-1.jpg" class="article-banner">
+                <img src="https://blog.lifeishao.com/img/azure-node.jpg" class="article-banner">
             
 
             <header class="article-header">
-    <a href="https://blog.lifeishao.com/2016/01/05/power-of-transformers">
+    <a href="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app">
     <h1 class="article-title" itemprop="name">
-        Power of Transformers (not these robots ↑)
+        Custom NodeJs Deployment on Azure Web App
     </h1>
     </a>
     <div class="article-meta">
@@ -286,15 +286,18 @@ We had to use transformers to separate the API&rsquo;s logic layer from its pres
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-01-05 14:51:45 -0600 STD" itemprop="datePublished">2016-01-05</time>
+            <time datetime="2017-03-24 17:05:17 -0500 DST" itemprop="datePublished">2017-03-24</time>
             &middot;
-            309
+            959
             words
             &middot;
-            2
+            5
             minute read
         </div>
         
+        
+            
+            
         
 
         
@@ -304,11 +307,15 @@ We had to use transformers to separate the API&rsquo;s logic layer from its pres
                 <i class="fa fa-tags"></i>
                 
                 
-                <a class="article-category-link" href="https://blog.lifeishao.com/tags/response">response</a>
+                <a class="article-category-link" href="https://blog.lifeishao.com/tags/azure">Azure</a>
                 &middot;
                 
                 
-                <a class="article-category-link" href="https://blog.lifeishao.com/tags/evaluation">evaluation</a>
+                <a class="article-category-link" href="https://blog.lifeishao.com/tags/nodejs">NodeJS</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://blog.lifeishao.com/tags/deployment">Deployment</a>
                 
                 
             </div>
@@ -320,77 +327,143 @@ We had to use transformers to separate the API&rsquo;s logic layer from its pres
             <div class="article-entry" itemprop="articleBody">
                 
 
-<p>About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office.  While the main functionalities were finalized, the app&rsquo;s development was still in its infancy.  This means that the API&rsquo;s output and how it would be best-suited for the app&rsquo;s consumption was still very much undefined.</p>
+<p>One of the advantages of using Azure Web App is how easy it is to deploy a NodeJS app.  If you have an app as simple as <a href="https://github.com/howlowck/simplest-restify-on-azure">this one</a>, Azure Web App will pick it up, install all the node dependencies, and serve the app on port 80.  And you are done!!!</p>
 
-<p>We had to use transformers to separate the API&rsquo;s logic layer from its presentation.</p>
+<p>Unfortunately, a lot of times, you might want to venture outside the comfort of auto-deploy land, and do some customization.  Maybe your public directory isn&rsquo;t called <code>/public</code>, or if you want to install <code>yarn</code> package manager, or install dev-dependencies to build your client-side code.</p>
 
-<p>We used a PHP package called <a href="http://fractal.thephpleague.com/">Fractal</a> to create our API presentation layer.</p>
+<h2 id="azure-deployment-magic-kudu">Azure Deployment Magic (Kudu)</h2>
 
-<h2 id="the-code">The Code</h2>
+<p>When you deploy a project on Azure Web App, it is using the Azure&rsquo;s deployment engine called Kudu.  Kudu will look at a couple of things to determine how to deploy your app.  If you have a <code>package.json</code>, Kudu will think you have a Node App.</p>
 
-<p>Setting up the code to use our transformer is pretty straight forward:</p>
+<h3 id="overall-process">Overall Process</h3>
 
-<pre><code class="language-PHP">...
-protected function getResourceArray(NotifyDTO $dto) {
-    $fractal = new Manager();
-    $fractal-&gt;setSerializer(new BareArraySerializer());
-    // using the transformer to create a new fractal item
-    $resource = new Item($dto, new NotifyResourceTransformer);
-    return $fractal-&gt;createData($resource)-&gt;toArray();
-}
-</code></pre>
+<ol>
+<li><code>repository</code> directory changes, Kudu process is triggered</li>
+<li>Kudu determines that it&rsquo;s a node app</li>
+<li>If there is no <code>web.config</code> or <code>iisnode.yml</code> in your repo, Kudu tries to generate it</li>
+<li>Kudu tries to figure out the Node version you want</li>
+<li>If there is no <code>.deployment</code> in your repo, Kudu generates and runs <code>deploy.cmd</code></li>
+</ol>
 
-<p>Here is the transformer itself:</p>
+<h3 id="the-web-config-file">The <code>web.config</code> file</h3>
 
-<pre><code class="language-PHP">class NotifyResourceTransformer extends Fractal\TransformerAbstract {
-...
+<p>The <code>web.config</code> file configures the IIS server.  With this XML-formatted file,  your IIS server knows how to handle a request that hits it.  The most important part of the config file for the Node app is the entry file.</p>
 
-  public function transform(NotifyDTO $notify) {
-    return [
-      'id' =&gt; (int) $notify-&gt;id,
-      'updated_at' =&gt; $notify-&gt;updatedAt-&gt;toRfc2822String(),
-      'created_at' =&gt; $notify-&gt;createdAt-&gt;toRfc2822String(),
-      'client_datetime_utc' =&gt; $notify-&gt;clientDt-&gt;toRfc2822String(),
-      'client_timestamp' =&gt; $notify-&gt;clientDt-&gt;timestamp,
-      'server_datetime_utc' =&gt; $notify-&gt;createdAt-&gt;toRfc2822String(),
-      'token' =&gt; $notify-&gt;token,
-      'origin_lat' =&gt; $notify-&gt;originLatLong-&gt;getLat(),
-      'origin_long' =&gt; $notify-&gt;originLatLong-&gt;getLong(),
-      'destination_lat' =&gt; $notify-&gt;destinationLatLong-&gt;getLat(),
-      'destination_long' =&gt; $notify-&gt;destinationLatLong-&gt;getLong(),
-      'countdown_duration' =&gt; $notify-&gt;countdownSeconds,
-      'expired_server_timestamp' =&gt; $notify-&gt;expiredAt-&gt;timestamp,
-      'remaining_time' =&gt; $this-&gt;calcTimeRemaining($notify-&gt;expiredAt-&gt;timestamp),
-      'contact_name' =&gt; $notify-&gt;contactName,
-      'contact_phone' =&gt; (string) $notify-&gt;contactPhone,
-      'battery' =&gt; $notify-&gt;battery,
-      'message' =&gt; $notify-&gt;message,
-      'return_netid' =&gt; $notify-&gt;returnNetid,
-      'initiated_at' =&gt; is_null($notify-&gt;initiatedAt)
-                         ? null: $notify-&gt;initiatedAt-&gt;toRfc2822String(),
-      'notified_at' =&gt; is_null($notify-&gt;notifiedAt)
-                        ? null: $notify-&gt;notifiedAt-&gt;toRfc2822String(),
-      'canceled_at'=&gt; is_null($notify-&gt;canceledAt)
-                       ? null: $notify-&gt;canceledAt-&gt;toRfc2822String(),
-      'latest_location_id' =&gt; $notify-&gt;latestLocationId,
-		];
-	}
-...
-}
-</code></pre>
+<p>If you already have a <code>web.config</code> file in your repo, Kudu will not try to generate a new one, and just load your <code>web.config</code> file.</p>
 
-<p>Fractal passes the Data Transfer Object (DTO) to the transformer to create an item.  This item is able to be outputted as various formats, ie XML, json, array, etc.</p>
+<p>However, if you don&rsquo;t have a <code>web.config</code>, Kudu will try to generate one for you.  In order to do that, Kudu needs to know where is the entry file.  Kudu tries to find your entry file in these steps:</p>
 
-<p>Enabling a transformer to transform an unchangeable data structure to an ever-changing output format proved to be invaluable for us.  When my colleague wanted the date format to change, it was literally one line of change without me worrying if other parts of my API application was needing the older format.</p>
+<ol>
+<li>Looks for <code>&quot;scripts&quot;:{&quot;start&quot;:command}</code> in your <code>package.json</code>.  Kudu <a href="https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/selectNodeVersion.js#L153">assumes</a> your command is <code>node filename</code>, so if you are using more robust tools like <a href="https://www.npmjs.com/package/better-npm-run">better-npm-run</a>, this heuristic will break. The script checks to see if the file exists, if it does not, goes to the next step.</li>
+<li>Looks for <code>app.js</code> or <code>server.js</code>, if either exists in the root repo path, Kudu sets it has the entry file.</li>
+</ol>
+
+<p>Once Kudu found the entry file, it generates the <code>web.config</code> file using <a href="https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/iisnode.config.template">this template</a>.  Notice that it is simply putting the file path into the <code>{NodeStartFile}</code> string in the template, and letting the <code>iisnode</code> module handling the request.</p>
+
+<h3 id="the-iisnode-yml-file">The <code>iisnode.yml</code> file</h3>
+
+<p>The iisnode.yml is a configuration file that set various settings for the iisnode module.  For the whole list of options you can set <a href="https://tomasz.janczuk.org/2012/05/yaml-configuration-support-in-iisnode.html">See this blog post on iisnode.yml</a>.</p>
+
+<p>The important setting is <code>nodeProcessCommandLine</code> which sets the exact path to the node executable.  <a href="https://github.com/howlowck/train-faces/blob/master/iisnode.yml">see this example</a></p>
+
+<p>If you don&rsquo;t have a <code>iisnode.yml</code> file, then Kudu will try to determine your Node Version</p>
+
+<h3 id="node-version-for-your-app">Node Version for your app</h3>
+
+<p>Kudu needs to know which version of node you want to run your app and deployment.  It will try to find the version you want by following these steps.
+If not satisfied, goes to the next step:</p>
+
+<ol>
+<li>If there is a <code>iisnode.yml</code> and <code>nodeProcessCommandLine</code> property inside: it will run that exact path of node.</li>
+<li>If in your <code>package.json</code>, there is an <code>&quot;engines&quot;:{&quot;node&quot;:version}</code> specification, Azure will use the specified version</li>
+<li>In Application Settings on the Azure portal, you have <code>WEBSITE_NODE_DEFAULT_VERSION</code> set as one of the environment variables</li>
+<li>The default Node version for Azure. The exact version changes over time.</li>
+</ol>
+
+<h3 id="the-deployment-and-deploy-cmd-file">The <code>.deployment</code> and <code>deploy.cmd</code> file</h3>
+
+<p><code>deploy.cmd</code> is the script that Kudu runs to &ldquo;build&rdquo; your project.</p>
+
+<p>If you don&rsquo;t have a <code>.deployment</code> file in your repo, Kudu will assume you want to use the default deployment script for your application.
+This is the <a href="https://github.com/projectkudu/kudu-deployment-scripts/blob/master/scripts/deploy-node.cmd">Node Deployment Script (deploy.cmd)</a> that will run.</p>
+
+<p>The part of the script we care about is <a href="https://github.com/projectkudu/kudu-deployment-scripts/blob/master/scripts/deploy-node.cmd#L88-L107">the Deployment section</a>.</p>
+
+<blockquote>
+<p><strong><em>Note:</em></strong> The npm install command in the script is  <code>npm install --production</code>, but even if you delete the <code>--production</code> flag, NPM will still ignore your dev-dependencies.  This is because when <code>npm install</code> runs, it looks at your &ldquo;NODE_ENV&rdquo; environment variable, and if it&rsquo;s &ldquo;prod&rdquo; or &ldquo;production&rdquo;, NPM will ignore your dev-dependencies.  Kudu sets your &ldquo;NODE_ENV&rdquo; to &ldquo;production&rdquo; by default.</p>
+</blockquote>
+
+<p>If you want to change your deployment process, you will need to add a <code>.deployment</code> file with a &ldquo;command&rdquo; config value (<a href="https://github.com/howlowck/train-faces/blob/master/.deployment">See example</a>), and a <code>deploy.cmd</code> file (<a href="https://github.com/howlowck/train-faces/blob/master/deploy.cmd">See example</a>).</p>
+
+<h2 id="common-deployment-tweaks">Common Deployment Tweaks</h2>
+
+<h3 id="change-node-version">Change Node Version</h3>
+
+<ol>
+<li>Add <code>&quot;engines&quot;:{&quot;node&quot;:version}</code> to your package.json file.</li>
+</ol>
+
+<h3 id="change-public-directory">Change public directory</h3>
+
+<ol>
+<li>Create a <code>web.config</code> file, (<a href="https://github.com/howlowck/train-faces/blob/master/web.config">See Example of a web.config</a>).</li>
+<li>Change the <code>url</code> property of the <code>action</code> node under <code>StaticContent</code></li>
+</ol>
+
+<h3 id="change-entry-file">Change Entry File</h3>
+
+<ol>
+<li>Create a <code>web.config</code> file, (<a href="https://github.com/howlowck/train-faces/blob/master/web.config">See Example of a web.config</a>).</li>
+<li>Change <code>path</code> property under the <code>handlers</code> node</li>
+<li>Change <code>url</code> property under the <code>rule name=&quot;NodeInspector&quot;</code> node</li>
+<li>Change <code>url</code> property under the <code>rule name=&quot;DynamicContent&quot;</code> node</li>
+</ol>
+
+<p><strong>OR</strong> if you don&rsquo;t want to create a custom <code>web.config</code></p>
+
+<ol>
+<li>change your <code>start</code> script in your <code>package.json</code> to <code>node example.js</code> (replace example.js with your entry file)</li>
+</ol>
+
+<h3 id="install-dev-dependencies">Install dev dependencies</h3>
+
+<ol>
+<li>Create a <a href="https://github.com/howlowck/train-faces/blob/master/.deployment"><code>.deployment</code> file</a></li>
+<li>Duplicate a <a href="https://github.com/projectkudu/kudu-deployment-scripts/blob/master/scripts/deploy-node.cmd"><code>deploy.cmd</code> file</a>, and find the line<br />
+<code>call :ExecuteCmd !NPM_CMD! install --production</code>.</li>
+<li>Add <code>call :ExecuteCmd !NPM_CMD! install --only=dev</code> right after that line.</li>
+</ol>
+
+<h2 id="tl-dr">TL;DR</h2>
+
+<ul>
+<li>Azure Web App uses <a href="https://github.com/projectkudu/kudu">Kudu</a> to deploy your app (when using git CI)</li>
+<li>Kudu <strong>does not</strong> run your <code>npm start</code> script.  It might look like it is if your <code>start</code> script is <code>node server.js</code></li>
+<li>If you don&rsquo;t have a <code>web.config</code>, Kudu will try to generate a <code>web.config</code> for you with the following steps to get the starter file.
+
+<ul>
+<li>Kudu tries to extract the entry file path from your <code>npm start</code> script</li>
+<li>Kudu looks for either a <code>server.js</code> or <code>app.js</code> in the root of your repository if <code>npm start</code> extraction wasn&rsquo;t successful.</li>
+</ul></li>
+</ul>
+
+<h2 id="useful-code-references">Useful Code References</h2>
+
+<ul>
+<li><a href="https://github.com/howlowck/train-faces/blob/master/deploy.cmd">Default deploy.cmd</a></li>
+<li><a href="https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/selectNodeVersion.js">JS Script that generates your web.config</a></li>
+<li><a href="https://github.com/projectkudu/kudu/blob/master/Kudu.Services/Deployment/DeploymentController.cs">Deployment Controller</a></li>
+<li><a href="https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Deployment/Generator/NodeSiteEnabler.cs">Node Detector</a></li>
+</ul>
 
             </div>
             <footer class="article-footer">
-    <a data-url="https://blog.lifeishao.com/2016/01/05/power-of-transformers" data-id="5d25457a55cef1dc6bf4b4a7e05ab45a" class="article-share-link">
+    <a data-url="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app" data-id="ff50cc0f8a15d94cafb1010ff30bbfc3" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://blog.lifeishao.com/2016/01/05/power-of-transformers#disqus_thread" class="article-comment-link">
+    <a href="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -466,21 +539,14 @@ protected function getResourceArray(NotifyDTO $dto) {
         
 <nav id="article-nav">
     
-    <a href="https://blog.lifeishao.com/2016/01/05/thoughts-on-card-validate" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Older
       </strong>
-      <div class="article-nav-title">Thoughts on Card Validate</div>
+      <div class="article-nav-title">Serving Static Assets in Restify</div>
     </a>
     
 
-    
-    <a href="https://blog.lifeishao.com/2016/07/30/gre-math-formulas" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-          Newer
-      </strong>
-      <div class="article-nav-title">Gre Math Formulas</div>
-    </a>
     
 </nav>
 
@@ -493,9 +559,9 @@ protected function getResourceArray(NotifyDTO $dto) {
             <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'lifeishao';
-    var disqus_identifier = 'https:\/\/blog.lifeishao.com\/2016\/01\/05\/power-of-transformers';
-    var disqus_title = 'Power of Transformers (not these robots ↑)';
-    var disqus_url = 'https:\/\/blog.lifeishao.com\/2016\/01\/05\/power-of-transformers';
+    var disqus_identifier = 'https:\/\/blog.lifeishao.com\/2017\/03\/24\/custom-nodejs-deployment-on-azure-web-app';
+    var disqus_title = 'Custom NodeJs Deployment on Azure Web App';
+    var disqus_url = 'https:\/\/blog.lifeishao.com\/2017\/03\/24\/custom-nodejs-deployment-on-azure-web-app';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -525,7 +591,7 @@ protected function getResourceArray(NotifyDTO $dto) {
                 <div class="item-thumbnail">
                     <a href="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app" class="thumbnail">
                     
-                        <span style="background-image:url(https://blog.lifeishao.com/img/azure-node.jpg)" alt="Power of Transformers (not these robots ↑)" class="thumbnail-image"></span>
+                        <span style="background-image:url(https://blog.lifeishao.com/img/azure-node.jpg)" alt="Custom NodeJs Deployment on Azure Web App" class="thumbnail-image"></span>
                     
                     </a>
                 </div>
@@ -589,7 +655,7 @@ protected function getResourceArray(NotifyDTO $dto) {
                 <div class="item-thumbnail">
                     <a href="https://blog.lifeishao.com/2016/01/05/power-of-transformers" class="thumbnail">
                     
-                        <span style="background-image:url(https://blog.lifeishao.com/img/transformers-1.jpg)" alt="Power of Transformers (not these robots ↑)" class="thumbnail-image"></span>
+                        <span style="background-image:url(https://blog.lifeishao.com/img/transformers-1.jpg)" alt="Custom NodeJs Deployment on Azure Web App" class="thumbnail-image"></span>
                     
                     </a>
                 </div>

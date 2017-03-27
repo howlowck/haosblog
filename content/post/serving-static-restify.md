@@ -5,7 +5,7 @@ images = []
 banner = ""
 menu = ""
 description = ""
-categories = []
+categories = ["Azure", "nodejs"]
 tags = []
 
 +++

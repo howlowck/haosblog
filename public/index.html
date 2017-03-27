@@ -29,7 +29,7 @@
 <meta property="og:url" content="https://blog.lifeishao.com/" />
 
 
-<meta property="og:updated_time" content="2017-03-21T17:02:21-05:00"/>
+<meta property="og:updated_time" content="2017-03-24T17:05:17-05:00"/>
 
 
 
@@ -163,12 +163,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        5
+        6
         <span>Posts</span>
       </div>
       <div class="article-info-block">
         
-          7
+          9
         
         <span>
             Tags
@@ -251,6 +251,155 @@
     <article class="article article-type-post" itemscope="" itemprop="blogPost">
         <div class="article-inner">
             
+            <a href="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app" itemprop="url">
+                <img src="https://blog.lifeishao.com/img/azure-node.jpg" class="article-banner">
+            
+            </a>
+
+            <header class="article-header">
+    <a href="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app">
+    <h1 class="article-title" itemprop="name">
+        Custom NodeJs Deployment on Azure Web App
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2017-03-24 17:05:17 -0500 DST" itemprop="datePublished">2017-03-24</time>
+            &middot;
+            959
+            words
+            &middot;
+            5
+            minute read
+        </div>
+        
+        
+            
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://blog.lifeishao.com/tags/azure">Azure</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://blog.lifeishao.com/tags/nodejs">NodeJS</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://blog.lifeishao.com/tags/deployment">Deployment</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                <p>
+                    One of the advantages of using Azure Web App is how easy it is to deploy a NodeJS app. If you have an app as simple as this one, Azure Web App will pick it up, install all the node dependencies, and serve the app on port 80. And you are done!!!
+Unfortunately, a lot of times, you might want to venture outside the comfort of auto-deploy land, and do some customization.
+                    <br>
+                </p>
+                <p class="article-more-link">
+                    <a href="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app">
+                        Read more
+                    </a>
+                </p>
+            </div>
+            <footer class="article-footer">
+    <a data-url="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app" data-id="ff50cc0f8a15d94cafb1010ff30bbfc3" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+        </div>
+    </article>
+    
+    <article class="article article-type-post" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
             </a>
 
             <header class="article-header">
@@ -275,6 +424,19 @@
         
         
             
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="https://blog.lifeishao.com/categories/azure">Azure</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://blog.lifeishao.com/categories/nodejs">nodejs</a>
+                
+                
+            </div>
             
         
 
@@ -516,6 +678,9 @@ $ a^0 = 1 $ (when $ a !
     
     <article class="article article-type-post" itemscope="" itemprop="blogPost">
         <div class="article-inner">
+            
+            <a href="https://blog.lifeishao.com/2016/01/05/power-of-transformers" itemprop="url">
+                <img src="https://blog.lifeishao.com/img/transformers-1.jpg" class="article-banner">
             
             </a>
 
@@ -961,6 +1126,25 @@ Background The purpose of the package is to quickly check for the type of credit
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app" class="thumbnail">
+                    
+                        <span style="background-image:url(https://blog.lifeishao.com/img/azure-node.jpg)" alt="Hao&#39;s Blog" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app" class="title">Custom NodeJs Deployment on Azure Web App</a></p>
+                    <p class="item-date">
+                        <time datetime="2017-03-24 17:05:17 -0500 DST" itemprop="datePublished">2017-03-24</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
@@ -969,6 +1153,13 @@ Background The purpose of the package is to quickly check for the type of credit
                 </div>
                 <div class="item-inner">
                     
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://blog.lifeishao.com/categories/azure">
+                        Azure
+                        </a>
+                    </p>
                     
                     
                     <p class="item-title"><a href="https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify" class="title">Serving Static Assets in Restify</a></p>
@@ -1001,7 +1192,7 @@ Background The purpose of the package is to quickly check for the type of credit
                 <div class="item-thumbnail">
                     <a href="https://blog.lifeishao.com/2016/01/05/power-of-transformers" class="thumbnail">
                     
-                        <span class="thumbnail-image thumbnail-none"></span>
+                        <span style="background-image:url(https://blog.lifeishao.com/img/transformers-1.jpg)" alt="Hao&#39;s Blog" class="thumbnail-image"></span>
                     
                     </a>
                 </div>
@@ -1031,23 +1222,6 @@ Background The purpose of the package is to quickly check for the type of credit
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="https://blog.lifeishao.com/2015/12/03/delivering-hugo" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    <p class="item-title"><a href="https://blog.lifeishao.com/2015/12/03/delivering-hugo" class="title">Delivering Hugo with Dokku (and Docker)</a></p>
-                    <p class="item-date">
-                        <time datetime="2015-12-03 13:50:55 -0600 STD" itemprop="datePublished">2015-12-03</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -1055,6 +1229,31 @@ Background The purpose of the package is to quickly check for the type of credit
 
     
 
+
+<div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://blog.lifeishao.com/categories/azure">
+                    azure
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://blog.lifeishao.com/categories/nodejs">
+                    nodejs
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
 
 
 
@@ -1071,6 +1270,14 @@ Background The purpose of the package is to quickly check for the type of credit
             
             <li class="category-list-item">
                 
+                <a class="category-list-link" href="https://blog.lifeishao.com/tags/azure">
+                    azure
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://blog.lifeishao.com/tags/deploy">
                     deploy
                 </a>
@@ -1082,7 +1289,7 @@ Background The purpose of the package is to quickly check for the type of credit
                 <a class="category-list-link" href="https://blog.lifeishao.com/tags/deployment">
                     deployment
                 </a>
-                <span class="category-list-count">1</span>
+                <span class="category-list-count">2</span>
             </li>
             
             <li class="category-list-item">
@@ -1119,6 +1326,14 @@ Background The purpose of the package is to quickly check for the type of credit
             
             <li class="category-list-item">
                 
+                <a class="category-list-link" href="https://blog.lifeishao.com/tags/nodejs">
+                    nodejs
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://blog.lifeishao.com/tags/response">
                     response
                 </a>
@@ -1142,6 +1357,9 @@ Background The purpose of the package is to quickly check for the type of credit
     <div class="widget tagcloud">
         
         
+        <a href="https://blog.lifeishao.com/tags/azure" style="font-size: 12px;">azure</a>
+        
+        
         <a href="https://blog.lifeishao.com/tags/deploy" style="font-size: 12px;">deploy</a>
         
         
@@ -1158,6 +1376,9 @@ Background The purpose of the package is to quickly check for the type of credit
         
         
         <a href="https://blog.lifeishao.com/tags/hugo" style="font-size: 12px;">hugo</a>
+        
+        
+        <a href="https://blog.lifeishao.com/tags/nodejs" style="font-size: 12px;">nodejs</a>
         
         
         <a href="https://blog.lifeishao.com/tags/response" style="font-size: 12px;">response</a>

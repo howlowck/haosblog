@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Deployment on Hao&#39;s Blog</title>
-    <link>https://blog.lifeishao.com/tags/deployment/index.xml</link>
-    <description>Recent content in Deployment on Hao&#39;s Blog</description>
+    <title>Azure on Hao&#39;s Blog</title>
+    <link>https://blog.lifeishao.com/tags/azure/index.xml</link>
+    <description>Recent content in Azure on Hao&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Powered by [Hugo](//gohugo.io).</copyright>
-    <atom:link href="https://blog.lifeishao.com/tags/deployment/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.lifeishao.com/tags/azure/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Custom NodeJs Deployment on Azure Web App</title>
@@ -145,17 +145,6 @@ This is the &lt;a href=&#34;https://github.com/projectkudu/kudu-deployment-scrip
 &lt;li&gt;&lt;a href=&#34;https://github.com/projectkudu/kudu/blob/master/Kudu.Services/Deployment/DeploymentController.cs&#34;&gt;Deployment Controller&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Deployment/Generator/NodeSiteEnabler.cs&#34;&gt;Node Detector&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Delivering Hugo with Dokku (and Docker)</title>
-      <link>https://blog.lifeishao.com/2015/12/03/delivering-hugo</link>
-      <pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate>
-      
-      <guid>https://blog.lifeishao.com/2015/12/03/delivering-hugo</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m trying to learn how to use dokku to deploy this hugo site.
-&amp;hellip; and it&amp;rsquo;s deployed now!!&lt;/p&gt;
 </description>
     </item>
     

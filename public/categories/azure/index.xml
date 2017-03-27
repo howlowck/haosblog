@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Azure on Hao&#39;s Blog</title>
+    <link>https://blog.lifeishao.com/categories/azure/index.xml</link>
+    <description>Recent content in Azure on Hao&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Powered by [Hugo](//gohugo.io).</copyright>
+    <atom:link href="https://blog.lifeishao.com/categories/azure/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Serving Static Assets in Restify</title>
+      <link>https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify</link>
+      <pubDate>Tue, 21 Mar 2017 17:02:21 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify</guid>
+      <description>
+
+&lt;h1 id=&#34;serving-static-assets-in-restify-nodejs&#34;&gt;Serving Static Assets in Restify NodeJS&lt;/h1&gt;
+
+&lt;p&gt;While Restify is branded as a REST Framework, there are instances where we want to put a static html along with the API.  For example, if we want to serve up the API documentation or built a Bot and serve up an UI.&lt;/p&gt;
+
+&lt;h2 id=&#34;four-lines-of-code&#34;&gt;Four lines of Code&lt;/h2&gt;
+
+&lt;p&gt;If you are looking to serve up static assets from the root path(ie &lt;code&gt;http://example.com/&lt;/code&gt;), and all your static assets are in the &lt;code&gt;public&lt;/code&gt; directory, these are the four lines of code you need.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;server.get(/\/?.*/, restify.serveStatic({
+  directory: &#39;./public&#39;,
+  default: &#39;index.html&#39;
+}))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;An important note is that you&amp;rsquo;ll need to &lt;strong&gt;put this code snippet as the very last route registration in your app&lt;/strong&gt;, otherwise every single GET request will try to serve the asset request (For example, &lt;code&gt;/api/messages&lt;/code&gt; will cause restify to look for &lt;code&gt;index.html&lt;/code&gt; under &lt;code&gt;public/api/messages/&lt;/code&gt;)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
