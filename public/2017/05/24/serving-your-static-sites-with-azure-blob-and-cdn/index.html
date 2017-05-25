@@ -21,7 +21,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="Serving Your Static Sites with Azure Blob and CDN" />
-<meta property="og:description" content="Problem I would like to store and serve this web site on Azure Blob Storage. Here is the criteria:
+<meta property="og:description" content="Problem I would like to store and serve this web site on Azure Blob Storage. Here are the criteria:
  Everything should be served from Blob Storage (No App Services, No VMs, and no Azure Functions)
  Clean URLs (blog.lifeishao.com instead of blog.lifeishao.com/index.html)
  Uses HTTPS (because SSO)
@@ -44,7 +44,7 @@
     
     
 <meta itemprop="name" content="Serving Your Static Sites with Azure Blob and CDN">
-<meta itemprop="description" content="Problem I would like to store and serve this web site on Azure Blob Storage. Here is the criteria:
+<meta itemprop="description" content="Problem I would like to store and serve this web site on Azure Blob Storage. Here are the criteria:
  Everything should be served from Blob Storage (No App Services, No VMs, and no Azure Functions)
  Clean URLs (blog.lifeishao.com instead of blog.lifeishao.com/index.html)
  Uses HTTPS (because SSO)
@@ -52,7 +52,7 @@
 
 
 <meta itemprop="dateModified" content="2017-05-24T16:25:52-05:00" />
-<meta itemprop="wordCount" content="1283">
+<meta itemprop="wordCount" content="1280">
 
 
 
@@ -65,7 +65,7 @@
 
 
 <meta name="twitter:title" content="Serving Your Static Sites with Azure Blob and CDN"/>
-<meta name="twitter:description" content="Problem I would like to store and serve this web site on Azure Blob Storage. Here is the criteria:
+<meta name="twitter:description" content="Problem I would like to store and serve this web site on Azure Blob Storage. Here are the criteria:
  Everything should be served from Blob Storage (No App Services, No VMs, and no Azure Functions)
  Clean URLs (blog.lifeishao.com instead of blog.lifeishao.com/index.html)
  Uses HTTPS (because SSO)
@@ -297,7 +297,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2017-05-24 16:25:52 -0500 DST" itemprop="datePublished">2017-05-24</time>
             &middot;
-            1283
+            1280
             words
             &middot;
             7
@@ -321,7 +321,7 @@
 
 <h2 id="problem">Problem</h2>
 
-<p>I would like to store and serve this web site on Azure Blob Storage.  Here is the criteria:</p>
+<p>I would like to store and serve this web site on Azure Blob Storage.  Here are the criteria:</p>
 
 <ol>
 <li>Everything should be served from Blob Storage (No App Services, No VMs, and no Azure Functions)<br /></li>
@@ -405,8 +405,6 @@ import os
 import platform
 import mimetypes
 import subprocess
-
-python_version = platform.python_version_tuple()[0]
 
 mimetypes.add_type(&quot;application/vnd.ms-fontobject&quot;, &quot;.eot&quot;)
 mimetypes.add_type(&quot;application/octet-stream&quot;, &quot;.ttf&quot;)

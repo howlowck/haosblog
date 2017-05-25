@@ -11,7 +11,7 @@ draft = false
 +++
 
 ## Problem
-I would like to store and serve this web site on Azure Blob Storage.  Here is the criteria:  
+I would like to store and serve this web site on Azure Blob Storage.  Here are the criteria:  
 
 1. Everything should be served from Blob Storage (No App Services, No VMs, and no Azure Functions)  
 2. Clean URLs (`blog.lifeishao.com` instead of `blog.lifeishao.com/index.html`)  
@@ -73,8 +73,6 @@ import os
 import platform
 import mimetypes
 import subprocess
-
-python_version = platform.python_version_tuple()[0]
 
 mimetypes.add_type("application/vnd.ms-fontobject", ".eot")
 mimetypes.add_type("application/octet-stream", ".ttf")

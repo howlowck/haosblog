@@ -20,7 +20,7 @@
 
 &lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;
 
-&lt;p&gt;I would like to store and serve this web site on Azure Blob Storage.  Here is the criteria:&lt;/p&gt;
+&lt;p&gt;I would like to store and serve this web site on Azure Blob Storage.  Here are the criteria:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Everything should be served from Blob Storage (No App Services, No VMs, and no Azure Functions)&lt;br /&gt;&lt;/li&gt;
@@ -104,8 +104,6 @@ import os
 import platform
 import mimetypes
 import subprocess
-
-python_version = platform.python_version_tuple()[0]
 
 mimetypes.add_type(&amp;quot;application/vnd.ms-fontobject&amp;quot;, &amp;quot;.eot&amp;quot;)
 mimetypes.add_type(&amp;quot;application/octet-stream&amp;quot;, &amp;quot;.ttf&amp;quot;)

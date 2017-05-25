@@ -3,8 +3,6 @@ import platform
 import mimetypes
 import subprocess
 
-python_version = platform.python_version_tuple()[0]
-
 mimetypes.add_type("application/vnd.ms-fontobject", ".eot")
 mimetypes.add_type("application/octet-stream", ".ttf")
 mimetypes.add_type("application/font-woff", ".woff")
