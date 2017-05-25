@@ -38,3 +38,22 @@ for extension in extensions:
         mime
     ]
     print(subprocess.check_output(command))
+
+print('Purging CDN')
+
+subprocess.check_output([
+    "az",
+    "cdn",
+    "endpoint",
+    "purge",
+    "-g",
+    "haosblog-rg",
+    "-n",
+    "haosblog",
+    "--profile-name",
+    "haos-premium-cdn",
+    "--content-paths",
+    "/*"
+])
+
+print('Purgin complete')
