@@ -52,7 +52,7 @@
 
 
 <meta itemprop="dateModified" content="2017-05-24T16:25:52-05:00" />
-<meta itemprop="wordCount" content="1280">
+<meta itemprop="wordCount" content="1349">
 
 
 
@@ -297,7 +297,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2017-05-24 16:25:52 -0500 DST" itemprop="datePublished">2017-05-24</time>
             &middot;
-            1280
+            1349
             words
             &middot;
             7
@@ -456,11 +456,13 @@ for extension in extensions:
 
 <h3 id="clean-url">Clean URL</h3>
 
-<p>At this point, you have an URL that you can hit and get the assets with the correct MIME-types.  And you can even set up a custom domain which points to this blob account.  It seems we are most there!  However, forcing your users to type <code>blog.yourwebsite.com/index.html</code> into the browser is NOT a complete solution, especially when <code>blog.yourwebsite.com</code> cannot redirect to <code>blog.yourwebsite.com/index.html</code> .</p>
+<p>At this point, you have an URL that you can hit and get the assets with the correct MIME-types.  And you can even set up a custom domain which points to this blob account.  It seems we are most there!</p>
+
+<p>However, forcing your users to type <code>blog.yourwebsite.com/index.html</code> into the browser is NOT a complete solution. Specifically <code>blog.yourwebsite.com</code> and <code>blog.yourwebsite.com/first-post</code> should resolve to <code>blog.yourwebsite.com/index.html</code> and <code>blog.yourwebsite.com/first-post/index.html</code>, respectively.</p>
 
 <p>In fact, the ability to serve a default asset when hitting a directory is the <a href="https://feedback.azure.com/forums/217298-storage/suggestions/6417741-static-website-hosting-in-azure-blob-storage">#2 most requested Blob Storage feature</a>.  And this feature request seems to be in a perpetual state of &ldquo;Under Review&rdquo;.</p>
 
-<p>We can use CDN to get around this restriction by utilizing the Premium Verizon Tier&rsquo;s Rules Engine Feature</p>
+<p>We can use CDN to get around this restriction by utilizing Azure CDN&rsquo;s Rules Engine Feature under the Premium Verizon Tier.</p>
 
 <hr />
 
@@ -498,9 +500,9 @@ for extension in extensions:
 <li>set the two newly-created dropdowns to &ldquo;URL Rewrite&rdquo;</li>
 <li>set the all the sources and destination dropdowns to the endpoint you created (the value with the endpoint name)</li>
 <li>for the first source pattern, set to <code>((?:[^\?]*/)?)($|\?.*)</code></li>
-<li>for the first destination pattern, set to <code>$1index.html$2</code></li>
+<li>for the first destination pattern, set to <code>$1index.html$2</code> (<a href="https://regex101.com/r/KK0jCN/1">See what this rule resolves to.</a>)</li>
 <li>for the second source pattern, set to <code>((?:[^\?]*/)?[^\?/.]+)($|\?.*)</code></li>
-<li>for the second destination pattern, set to <code>$1/index.html$2</code></li>
+<li>for the second destination pattern, set to <code>$1/index.html$2</code>(<a href="https://regex101.com/r/fzrnnQ/1">See what this rule resolves to.</a>)</li>
 </ol>
 
 <p>The end result should look like something like this:
@@ -512,7 +514,13 @@ for extension in extensions:
 
 <p>Then click the &ldquo;Add&rdquo; Button.  It will take up to 4 hours for the setting to propagate to all the CDN nodes.</p>
 
-<p>After the setting is &ldquo;Active&rdquo;, then you can access the site by going to your CDN Endpoint URL without pointing directly <code>index.html</code>!</p>
+<p>After the setting is &ldquo;Active&rdquo;, then you can access the site by going to your CDN Endpoint URL without pointing directly to <code>index.html</code>!</p>
+
+<h3 id="aside-simpler-rules">Aside: Simpler Rules</h3>
+
+<p>If you would like to simply resolve the top-level domain to its index.html, you don&rsquo;t have to use messy regex.</p>
+
+<p>You just have to create one URL Rewrite rule, and simply set the source pattern to <code>/</code> and the pattern to <code>/index.html</code>. (Thanks <a href="https://twitter.com/RichyLi">@RichyLi</a> for pointing this out).</p>
 
 <h3 id="7-purging-your-cdn">7. Purging your CDN</h3>
 

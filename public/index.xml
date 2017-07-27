@@ -155,11 +155,13 @@ for extension in extensions:
 
 &lt;h3 id=&#34;clean-url&#34;&gt;Clean URL&lt;/h3&gt;
 
-&lt;p&gt;At this point, you have an URL that you can hit and get the assets with the correct MIME-types.  And you can even set up a custom domain which points to this blob account.  It seems we are most there!  However, forcing your users to type &lt;code&gt;blog.yourwebsite.com/index.html&lt;/code&gt; into the browser is NOT a complete solution, especially when &lt;code&gt;blog.yourwebsite.com&lt;/code&gt; cannot redirect to &lt;code&gt;blog.yourwebsite.com/index.html&lt;/code&gt; .&lt;/p&gt;
+&lt;p&gt;At this point, you have an URL that you can hit and get the assets with the correct MIME-types.  And you can even set up a custom domain which points to this blob account.  It seems we are most there!&lt;/p&gt;
+
+&lt;p&gt;However, forcing your users to type &lt;code&gt;blog.yourwebsite.com/index.html&lt;/code&gt; into the browser is NOT a complete solution. Specifically &lt;code&gt;blog.yourwebsite.com&lt;/code&gt; and &lt;code&gt;blog.yourwebsite.com/first-post&lt;/code&gt; should resolve to &lt;code&gt;blog.yourwebsite.com/index.html&lt;/code&gt; and &lt;code&gt;blog.yourwebsite.com/first-post/index.html&lt;/code&gt;, respectively.&lt;/p&gt;
 
 &lt;p&gt;In fact, the ability to serve a default asset when hitting a directory is the &lt;a href=&#34;https://feedback.azure.com/forums/217298-storage/suggestions/6417741-static-website-hosting-in-azure-blob-storage&#34;&gt;#2 most requested Blob Storage feature&lt;/a&gt;.  And this feature request seems to be in a perpetual state of &amp;ldquo;Under Review&amp;rdquo;.&lt;/p&gt;
 
-&lt;p&gt;We can use CDN to get around this restriction by utilizing the Premium Verizon Tier&amp;rsquo;s Rules Engine Feature&lt;/p&gt;
+&lt;p&gt;We can use CDN to get around this restriction by utilizing Azure CDN&amp;rsquo;s Rules Engine Feature under the Premium Verizon Tier.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -197,9 +199,9 @@ for extension in extensions:
 &lt;li&gt;set the two newly-created dropdowns to &amp;ldquo;URL Rewrite&amp;rdquo;&lt;/li&gt;
 &lt;li&gt;set the all the sources and destination dropdowns to the endpoint you created (the value with the endpoint name)&lt;/li&gt;
 &lt;li&gt;for the first source pattern, set to &lt;code&gt;((?:[^\?]*/)?)($|\?.*)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;for the first destination pattern, set to &lt;code&gt;$1index.html$2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;for the first destination pattern, set to &lt;code&gt;$1index.html$2&lt;/code&gt; (&lt;a href=&#34;https://regex101.com/r/KK0jCN/1&#34;&gt;See what this rule resolves to.&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;for the second source pattern, set to &lt;code&gt;((?:[^\?]*/)?[^\?/.]+)($|\?.*)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;for the second destination pattern, set to &lt;code&gt;$1/index.html$2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;for the second destination pattern, set to &lt;code&gt;$1/index.html$2&lt;/code&gt;(&lt;a href=&#34;https://regex101.com/r/fzrnnQ/1&#34;&gt;See what this rule resolves to.&lt;/a&gt;)&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;The end result should look like something like this:
@@ -211,7 +213,13 @@ for extension in extensions:
 
 &lt;p&gt;Then click the &amp;ldquo;Add&amp;rdquo; Button.  It will take up to 4 hours for the setting to propagate to all the CDN nodes.&lt;/p&gt;
 
-&lt;p&gt;After the setting is &amp;ldquo;Active&amp;rdquo;, then you can access the site by going to your CDN Endpoint URL without pointing directly &lt;code&gt;index.html&lt;/code&gt;!&lt;/p&gt;
+&lt;p&gt;After the setting is &amp;ldquo;Active&amp;rdquo;, then you can access the site by going to your CDN Endpoint URL without pointing directly to &lt;code&gt;index.html&lt;/code&gt;!&lt;/p&gt;
+
+&lt;h3 id=&#34;aside-simpler-rules&#34;&gt;Aside: Simpler Rules&lt;/h3&gt;
+
+&lt;p&gt;If you would like to simply resolve the top-level domain to its index.html, you don&amp;rsquo;t have to use messy regex.&lt;/p&gt;
+
+&lt;p&gt;You just have to create one URL Rewrite rule, and simply set the source pattern to &lt;code&gt;/&lt;/code&gt; and the pattern to &lt;code&gt;/index.html&lt;/code&gt;. (Thanks &lt;a href=&#34;https://twitter.com/RichyLi&#34;&gt;@RichyLi&lt;/a&gt; for pointing this out).&lt;/p&gt;
 
 &lt;h3 id=&#34;7-purging-your-cdn&#34;&gt;7. Purging your CDN&lt;/h3&gt;
 

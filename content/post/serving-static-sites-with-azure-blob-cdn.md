@@ -120,11 +120,13 @@ You can click on the index.html under "myblog" container file to open its "Blob 
 
 -------------------------------------
 ### Clean URL
-At this point, you have an URL that you can hit and get the assets with the correct MIME-types.  And you can even set up a custom domain which points to this blob account.  It seems we are most there!  However, forcing your users to type `blog.yourwebsite.com/index.html` into the browser is NOT a complete solution, especially when `blog.yourwebsite.com` cannot redirect to `blog.yourwebsite.com/index.html` .  
+At this point, you have an URL that you can hit and get the assets with the correct MIME-types.  And you can even set up a custom domain which points to this blob account.  It seems we are most there!  
+
+However, forcing your users to type `blog.yourwebsite.com/index.html` into the browser is NOT a complete solution. Specifically `blog.yourwebsite.com` and `blog.yourwebsite.com/first-post` should resolve to `blog.yourwebsite.com/index.html` and `blog.yourwebsite.com/first-post/index.html`, respectively.  
 
 In fact, the ability to serve a default asset when hitting a directory is the [#2 most requested Blob Storage feature](https://feedback.azure.com/forums/217298-storage/suggestions/6417741-static-website-hosting-in-azure-blob-storage).  And this feature request seems to be in a perpetual state of "Under Review".
 
-We can use CDN to get around this restriction by utilizing the Premium Verizon Tier's Rules Engine Feature
+We can use CDN to get around this restriction by utilizing Azure CDN's Rules Engine Feature under the Premium Verizon Tier.
 
 ------------------------------------
 
@@ -155,9 +157,9 @@ And you'll be taken to another page with a ton of configurations.  Hover over "H
 3. set the two newly-created dropdowns to "URL Rewrite"
 4. set the all the sources and destination dropdowns to the endpoint you created (the value with the endpoint name)
 5. for the first source pattern, set to `((?:[^\?]*/)?)($|\?.*)`
-6. for the first destination pattern, set to `$1index.html$2`
+6. for the first destination pattern, set to `$1index.html$2` ([See what this rule resolves to.](https://regex101.com/r/KK0jCN/1))
 7. for the second source pattern, set to `((?:[^\?]*/)?[^\?/.]+)($|\?.*)`
-8. for the second destination pattern, set to `$1/index.html$2`
+8. for the second destination pattern, set to `$1/index.html$2`([See what this rule resolves to.](https://regex101.com/r/fzrnnQ/1))
 
 The end result should look like something like this:
 ![Add URL Rewrite Rules](/serving-blob/add-rules.jpg)
@@ -166,7 +168,12 @@ The end result should look like something like this:
 
 Then click the "Add" Button.  It will take up to 4 hours for the setting to propagate to all the CDN nodes.
 
-After the setting is "Active", then you can access the site by going to your CDN Endpoint URL without pointing directly `index.html`!
+After the setting is "Active", then you can access the site by going to your CDN Endpoint URL without pointing directly to `index.html`!
+
+### Aside: Simpler Rules
+If you would like to simply resolve the top-level domain to its index.html, you don't have to use messy regex.
+
+You just have to create one URL Rewrite rule, and simply set the source pattern to `/` and the pattern to `/index.html`. (Thanks [@RichyLi](https://twitter.com/RichyLi) for pointing this out).
 
 ### 7. Purging your CDN
 you can use the `az` tool to purge your cdn.
