@@ -58,7 +58,6 @@ When you multiply or divide by a **negative** number, you have to **flip the sig
 
 A trapezoid has four sides, and at least a set of opposing sides needs to be **parallel**.  It's also possible that both sets of opposing sides are parallel, it's called a **parallelogram**.  Yes, rectangles and squares are also considered to be trapezoids (and parallelograms).
 
-{{< jsfiddle id="howlowck/8e8u4nau" tabs="result" height="250px">}}
 #### Area: 
 $ A = h*(a+b)/2 $  
 
