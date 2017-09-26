@@ -15,7 +15,7 @@ I would like to store and serve this web site on Azure Blob Storage.  Here are t
 
 1. Everything should be served from Blob Storage (No App Services, No VMs, and no Azure Functions)  
 2. Clean URLs (`blog.lifeishao.com` instead of `blog.lifeishao.com/index.html`)  
-3. Uses HTTPS ([because SSO](https://webmasters.googleblog.com/2014/08/https-as-ranking-signal.html))  
+3. Uses HTTPS ([because SEO](https://webmasters.googleblog.com/2014/08/https-as-ranking-signal.html))  
 
 ## Why?
 
@@ -27,7 +27,7 @@ An App Services instance is around 40 dollars per month.  While Blob Storage is 
 
 | Web App | Blob + CDN  |
 |:-------:|:-----------:|
-|$40/month| $0.60/month |
+|$40/month| $0.20/month |
 
 
 ## Challenges
