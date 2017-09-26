@@ -1,6 +1,6 @@
 +++
 menu = ""
-banner = ""
+banner = "img/hugo-travis-azure.jpg"
 images = [
 ]
 tags = [
@@ -13,9 +13,13 @@ date = "2017-09-25T10:19:06-05:00"
 title = "Serving Hugo on Azure with Continuous Integration"
 +++
 
-In my [last post]({{<ref "post/serving-static-sites-with-azure-blob-cdn.md">}}), I walked through how to configure your Azure blob and CDN to serve your static website.  However, the way to manually upload your content every time you update your site is not ideal.
+## Why?
 
-In this post, we will go through how to set up Travis CI, and build your Hugo site and upload your site to Azure Blob Storage and using azure cli to purge your CDN.
+In my [last post]({{<ref "post/serving-static-sites-with-azure-blob-cdn.md">}}), I walked through how to configure your Azure blob and CDN to serve your static website.  The deployment script outlined in that post is fine for a simple blog site. However, it is not a solution if you have a site that is contributed by multiple people.  Everytime anyone pushes, they would get a merge conflict on the generated content, or they can `force` push and risk losing other changes.
+
+It is generally best practice to delegate the build/deploy steps after a push to a remote repo, in our case it's Github.  [Travis CI](https://travis-ci.org/) lets you build and deploy all Open Source software for free.  So we will utilize Travis to build your Hugo site on every push to Github.
+
+After this post, you will have a Hugo blog that will continuously integrate with your Azure Blob and CDN deployment, without you worrying about building or deploying the site yourself.
 
 Pre-requisites for this post:  
 
@@ -25,7 +29,7 @@ Pre-requisites for this post:
 * Have a travis-ci.org
 * Have a github repo
 
-Please refer to the [previous post]({{<ref "post/serving-static-sites-with-azure-blob-cdn.md">}}), if you need help setting up the CDN and Blob Storage
+Please refer to the [previous post]({{<ref "post/serving-static-sites-with-azure-blob-cdn.md">}}) if you need help setting up the CDN and Blob Storage.  This post will walk through how to set up continous integration with TravisCI.
 
 ## 1. Make sure your hugo repo is clean to build
 
@@ -65,14 +69,21 @@ First Remove the service principal from your subscription.  Go to your Subscript
 
 ![Remove service principal from your subscription](/hugo-travis/remove-service-principal-subscription.jpg)
 
-Select the service principal, and click "Remove".  Now, you need to add the service principal to your CDN profile.
+Select the service principal, and click "Remove".  
+
+Now, you can navigate to your CDN Profile resource, and go to its Access Control blade.  Then, search for your service principal by clicking "Add" button.  See screenshot below.
 
 ![Add service principal to your CDN Profile](/hugo-travis/assign-service-principal-cdn.jpg)
+
+You are now done with the Azure portion of the setup.
 
 ## 5. Set up your Travis Environment Variables
 
 Assuming you already have the repo on github, login into [travis-ci.org](travis-ci.org), and go to your account.
-You should see a list of your public repositories.  If you do not, click "Sync Account" on the upper right of the screen.  Also, make sure you are on travis-ci**.org** and NOT on travis-ci**.com**
+You should see a list of your public repositories.  If you do not, click "Sync Account" on the upper right of the screen.  
+
+> Note: Make sure you are on travis-ci**.org** and NOT on travis-ci**.com**
+
 ![Sync Account on your Profile](/hugo-travis/travis-sync-account.jpg)
 
 Find the repo you want to deploy, and click the toggle. wait until it turns green, and then click into the repository.
