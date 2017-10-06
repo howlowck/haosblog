@@ -157,14 +157,14 @@ And you'll be taken to another page with a ton of configurations.  Hover over "H
 3. set the two newly-created dropdowns to "URL Rewrite"
 4. set the all the sources and destination dropdowns to the endpoint you created (the value with the endpoint name)
 5. for the first source pattern, set to `((?:[^\?]*/)?)($|\?.*)`
-6. for the first destination pattern, set to `$1index.html$2` ([See what this rule resolves to.](https://regex101.com/r/KK0jCN/1))
+6. for the first destination pattern, set to `$1index.html$2` ([See what this rule resolves to.](https://regex101.com/r/KK0jCN/5))
 7. for the second source pattern, set to `((?:[^\?]*/)?[^\?/.]+)($|\?.*)`
-8. for the second destination pattern, set to `$1/index.html$2`([See what this rule resolves to.](https://regex101.com/r/fzrnnQ/1))
+8. for the second destination pattern, set to `$1/index.html$2`([See what this rule resolves to.](https://regex101.com/r/fzrnnQ/2))
 
 The end result should look like something like this:
 ![Add URL Rewrite Rules](/serving-blob/add-rules.jpg)
 
-> **Note:** if you would like `https://yourblog.azureedge.net/myawesomepost` (without a trailing slash) to resolve to `https://yourblog.azureedge.net/myawesomepost.html`, you can set the second destination pattern to `$1.html$2`. The destination pattern in step 8 resolves the asset to `https://yourblog.azureedge.net/myawesomepost/index.html`
+> **Note:** if you would like `https://yourblog.azureedge.net/myawesomepost` (without a trailing slash) to resolve to `https://yourblog.azureedge.net/myawesomepost.html`, you can set the second destination pattern to `$1.html$2`. The destination pattern in step 8 resolves the asset to `https://yourblog.azureedge.net/myawesomepost/index.html`.  Of course, this means any resource without an extension will resolve to `.html`.  You might not want this behavior, but there is no way for CDN Rules Engine to know what type of file you're trying to request.
 
 Then click the "Add" Button.  It will take up to 4 hours for the setting to propagate to all the CDN nodes.
 
@@ -173,7 +173,7 @@ After the setting is "Active", then you can access the site by going to your CDN
 ### Aside: Simpler Rules
 If you would like to simply resolve the top-level domain to its index.html, you don't have to use messy regex.
 
-You just have to create one URL Rewrite rule, and simply set the source pattern to `/` and the pattern to `/index.html`. (Thanks [@RichyLi](https://twitter.com/RichyLi) for pointing this out).
+You just have to create one URL Rewrite rule, and simply set the source pattern to `$` and the pattern to `index.html`. (Thanks [@RichyLi](https://twitter.com/RichyLi) for pointing this out).
 
 ### 7. Purging your CDN
 you can use the `az` tool to purge your cdn.
@@ -194,7 +194,7 @@ Once you have the custom domain setup.  The Azure CDN gives your custom domain a
 It then takes 8 hours for the certificate to propagate to its CDN nodes.
 
 ### Continuous Deployment
-TODO (using git hooks)
+Read the [next post on CI with Travis]({{<ref "post/hugo-travis-blob-cdn.md">}})
 
 ## Inspiration
 * [Deploying Hugo on Azure Web App](http://nobadmemories.com/blog/2017/05/blogging-with-hugo-and-azure/)
