@@ -1,4 +1,4 @@
-baseurl = "https://blog.lifeishao.com/"
+baseurl = "http://blog.lifeishao.com/"
 languageCode = "en-us"
 title = "Hao's Blog"
 # Enable comments by entering your Disqus shortname
