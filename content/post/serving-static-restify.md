@@ -16,10 +16,10 @@ While Restify is branded as a REST Framework, there are instances where we want 
 
 ## Four lines of Code
 
-If you are looking to serve up static assets from the root path(ie `http://example.com/`), and all your static assets are in the `public` directory, these are the four lines of code you need.
+If you are looking to serve up static assets from the root path(ie `http://example.com/`), and all your static assets are in the `public` directory, these are the four lines of code you need if you are using restify v5+
 
 ```js
-server.get(/\/?.*/, restify.serveStatic({
+server.get(/\/?.*/, restify.plugins.serveStatic({
   directory: './public',
   default: 'index.html'
 }))
