@@ -1,7 +1,8 @@
 +++
-title: "Typescript Migration Headaches (and How to solve them)"
-date: 2017-11-28T17:05:48-06:00
-draft: true
+title = "Typescript Migration Headaches"
+slug = "ts-migration-headaches"
+date = 2017-11-28T17:05:48-06:00
+draft = true
 images = []
 banner = ""
 menu = ""

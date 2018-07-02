@@ -1,14 +1,15 @@
----
-title: "Code Smells in Javascript"
-date: 2017-11-09T17:05:48-06:00
-draft: true
-images = []
++++
+title = "Code Smells in Javascript"
+date = 2017-11-09T17:05:48-06:00
+draft = true
 banner = ""
-menu = ""
-description = ""
 categories = []
+description = ""
+images = []
+menu = ""
 tags = []
----
+slug = "code-smells-js"
++++
 
 # Code Smells in Javascript and How to refactor them
 
@@ -23,5 +24,3 @@ As a technical evangelist for Microsoft, I read a lot of code.  The quality of c
 ## Nested logic branches
 
 ## Outer scope variable to handle async
-
-
