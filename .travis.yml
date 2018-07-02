@@ -1,4 +1,4 @@
-dist: wheezy
+dist: trusty
 sudo: off
 addons:
   apt:
@@ -24,16 +24,17 @@ env:
 
 install: 
   - go get -u -v github.com/spf13/hugo
-  - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-  - sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
-  - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list' 
-  - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-  - curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list > ./microsoft-prod.list
-  - sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-  - curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  - sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+  # https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest
+  - AZ_REPO=$(lsb_release -cs)
+  - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list  
+  - curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+  - sudo apt-get install apt-transport-https
+  - sudo apt-get update && sudo apt-get install azure-cli=2.0.38-1~trusty
+  # installing AzCopy=7.2.0 https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+  - sudo cp ./azure.list /etc/apt/sources.list.d/
   - sudo apt-get update
-  - sudo apt-get install apt-transport-https azcopy azure-cli
+  - sudo apt-get install azcopy=7.2.0-netcore
 
 # Build the website
 script:
