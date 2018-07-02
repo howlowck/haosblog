@@ -10,6 +10,12 @@ title = "Serving Your Static Sites with Azure Blob and CDN"
 draft = false
 +++
 
+----------------------
+
+> Update: The Blob Storage team has implemented [the Static Website feature](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website).  Please go check/try it out!
+
+----------------------
+
 ## Problem
 I would like to store and serve this web site on Azure Blob Storage.  Here are the criteria:  
 
