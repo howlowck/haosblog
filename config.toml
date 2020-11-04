@@ -8,7 +8,7 @@ googleAnalytics = "UA-32998844-2"
 # Define the number of posts per page
 paginate = 10
 footnotereturnlinkcontents = "↩"
-theme = "hugo-icarus-theme"
+theme = "hugo-icarus"
 
 
 [permalinks]
