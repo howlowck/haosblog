@@ -5,7 +5,7 @@ menu = ""
 description = "This is a walkthrough of how to replace Docker with Podman, and configure VSCode to use its VSCode DevContainer for both single and multiple-container scenarios."
 categories = []
 tags = []
-date = "2020-12-30T15:44:52"
+date = "2021-12-30T15:44:52"
 title = "Replacing Docker with Podman for your VSCode DevContainers"
 draft = false
 +++
