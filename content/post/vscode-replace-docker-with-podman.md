@@ -2,7 +2,7 @@
 images = []
 banner = "img/vscode-replace-docker-podman.png"
 menu = ""
-description = ""
+description = "This is a walkthrough of how to replace Docker with Podman, and configure VSCode to use its VSCode DevContainer for both single and multiple-container scenarios."
 categories = []
 tags = []
 date = "2020-12-30T15:44:52"
@@ -12,7 +12,9 @@ draft = false
 
 # Replacing Docker with Podman for VSCode DevContainers
 
-This is a walkthrough of how to replace Docker with Podman, and configure VSCode to use its VSCode DevContainer for both single and multiple-container scenarios. While this walkthrough is **targeted for Windows WSL2 environment**, it theoretically would work with other platforms (such as Linux and [Intel Mac](https://podman.io/blogs/2021/09/06/podman-on-macs.html))
+This is a walkthrough of how to replace Docker with Podman, and configure VSCode to use its VSCode DevContainer for both single and multiple-container scenarios.
+
+While this walkthrough is **targeted for Windows WSL2 environment**, it theoretically would work with other platforms (such as Linux and [Intel Mac](https://podman.io/blogs/2021/09/06/podman-on-macs.html))
 
 ## 1. Installing Podman
 
