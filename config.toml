@@ -18,7 +18,7 @@ theme = "hugo-icarus"
 [params]
     # Tell me who you are
     author = "Hao Luo"
-    bio = "Jesus Follower, Developer, Technical Evangelist"
+    bio = "Software Engineer @ Microsoft"
     location = "Chicago, IL"
     site_description = ""
     copyright  = "Powered by [Hugo](//gohugo.io)."
