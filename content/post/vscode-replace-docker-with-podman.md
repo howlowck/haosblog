@@ -65,7 +65,7 @@ While this walkthrough is **targeted for Windows WSL2 environment**, it theoreti
 ## 3. Install Podman-Compose and configure VSCode
 
 1. Make sure you have `pip3` installed.
-2. Right now, there are some commands missing in `podman-compose` for VSCode Devcontainer to work. [There is a PR out to address this.](https://github.com/containers/podman-compose/pull/394) Until the PR is merged, **you can run `pip3 install https://github.com/howlowck/podman-compose/archive/devel.tar.gz` in install the patched version.** Simply run `pip3 install podman-compose` once the patched version is merged into `stable`.
+2. Right now, there are some commands missing in `podman-compose` for VSCode Devcontainer to work. [There is a PR out to address this.](https://github.com/containers/podman-compose/pull/394) (UPDATE: It's merged.) For now, **you can run `pip3 install https://github.com/containers/podman-compose/archive/devel.tar.gz` in install the dev version.** Once it's merged into `stable`, You can simply run `pip3 install podman-compose` to update.
 3. (Optional) You can add `alias docker-compose="docker-compose"` in your dotfile, but there might be some back-compat issues with docker-compose, [plenty of missing commands](https://github.com/containers/podman-compose/blob/stable/CONTRIBUTING.md#missing-commands-help-needed).
 4. Update VSCode settings like so: ![podman-compose vscode settings](/vscode-replace-docker-podman/podman-compose-vscode-settings.png)
 
