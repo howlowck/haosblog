@@ -1,14 +1,16 @@
-+++
-images = []
-banner = "img/vscode-replace-docker-podman.png"
-menu = ""
-description = "This is a walkthrough of how to replace Docker with Podman, and configure VSCode to use its VSCode DevContainer for both single and multiple-container scenarios."
-categories = []
-tags = []
-date = "2021-12-30T15:44:52"
-title = "Replacing Docker with Podman for your VSCode DevContainers"
-draft = false
-+++
+---
+images: []
+cover:
+  image: "img/vscode-replace-docker-podman.png"
+menu: ""
+description: "This is a walkthrough of how to replace Docker with Podman, and configure VSCode to use its VSCode DevContainer for both single and multiple-container scenarios."
+categories: []
+tags: []
+comments: true
+date: "2021-12-30T15:44:52"
+title: "Replacing Docker with Podman for your VSCode DevContainers"
+draft: false
+---
 
 # Replacing Docker with Podman for VSCode DevContainers
 
@@ -52,10 +54,10 @@ While this walkthrough is **targeted for Windows WSL2 environment**, it theoreti
 
 ## Troubleshooting Podman DevContainer
 
-* `mkdir: cannot create directory '/root': Permission denied`
-  
-  * If you configured podman to be rootful and would like to run the devcontainer with root, then you can remove/comment out `remoteUser` in `devcontainer.json`.
-  * If you want the devcontainer to be rootless, and you encountered the error above, add the following two values into your `.devcontainer/devcontainer.json`:
+- `mkdir: cannot create directory '/root': Permission denied`
+
+  - If you configured podman to be rootful and would like to run the devcontainer with root, then you can remove/comment out `remoteUser` in `devcontainer.json`.
+  - If you want the devcontainer to be rootless, and you encountered the error above, add the following two values into your `.devcontainer/devcontainer.json`:
 
   ```jsonc
     "runArgs": ["--userns=keep-id"],
@@ -75,6 +77,6 @@ While this walkthrough is **targeted for Windows WSL2 environment**, it theoreti
 
 ## Troubleshooting Podman-Compose
 
-* `Error: error creating container storage: the container name "(name)" is already in use`
-  
+- `Error: error creating container storage: the container name "(name)" is already in use`
+
   Kill the containers by listing out the running container (`docker ps`) and killing them (`docker kill ...<container ids>`)

@@ -1,23 +1,25 @@
-+++
-author = "Hao Luo"
-comments = true
-date = "2016-01-05T14:51:45-06:00"
-draft = false
-banner = "img/transformers-1.jpg"
-menu = ""
-share = true
-slug = "power-of-transformers"
-tags = ["response", "evaluation"]
-title = "Power of Transformers (not these robots ↑)"
-+++
+---
+author: "Hao Luo"
+comments: true
+date: "2016-01-05T14:51:45-06:00"
+draft: false
+cover:
+  image: "img/transformers-1.jpg"
+menu: ""
+share: true
+slug: "power-of-transformers"
+tags: ["response", "evaluation"]
+title: "Power of Transformers (not these robots ↑)"
+---
 
-About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office.  While the main functionalities were finalized, the app's development was still in its infancy.  This means that the API's output and how it would be best-suited for the app's consumption was still very much undefined.
+About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office. While the main functionalities were finalized, the app's development was still in its infancy. This means that the API's output and how it would be best-suited for the app's consumption was still very much undefined.
 
 We had to use transformers to separate the API's logic layer from its presentation.
 
 We used a PHP package called [Fractal](http://fractal.thephpleague.com/) to create our API presentation layer.
 
 ## The Code
+
 Setting up the code to use our transformer is pretty straight forward:
 
 ```PHP
@@ -32,6 +34,7 @@ protected function getResourceArray(NotifyDTO $dto) {
 ```
 
 Here is the transformer itself:
+
 ```PHP
 class NotifyResourceTransformer extends Fractal\TransformerAbstract {
 ...
@@ -70,6 +73,6 @@ class NotifyResourceTransformer extends Fractal\TransformerAbstract {
 }
 ```
 
-Fractal passes the Data Transfer Object (DTO) to the transformer to create an item.  This item is able to be outputted as various formats, ie XML, json, array, etc.
+Fractal passes the Data Transfer Object (DTO) to the transformer to create an item. This item is able to be outputted as various formats, ie XML, json, array, etc.
 
-Enabling a transformer to transform an unchangeable data structure to an ever-changing output format proved to be invaluable for us.  When my colleague wanted the date format to change, it was literally one line of change without me worrying if other parts of my API application was needing the older format.
+Enabling a transformer to transform an unchangeable data structure to an ever-changing output format proved to be invaluable for us. When my colleague wanted the date format to change, it was literally one line of change without me worrying if other parts of my API application was needing the older format.
