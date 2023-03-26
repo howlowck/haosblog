@@ -1,13 +1,74 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hao's Blog</title><link>https://blog.lifeishao.com/</link><description>Recent content on Hao's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 30 Dec 2021 15:44:52 +0000</lastBuildDate><atom:link href="https://blog.lifeishao.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Replacing Docker with Podman for your VSCode DevContainers</title><link>https://blog.lifeishao.com/2021/12/30/replacing-docker-with-podman-for-your-vscode-devcontainers/</link><pubDate>Thu, 30 Dec 2021 15:44:52 +0000</pubDate><guid>https://blog.lifeishao.com/2021/12/30/replacing-docker-with-podman-for-your-vscode-devcontainers/</guid><description>Replacing Docker with Podman for VSCode DevContainers This is a walkthrough of how to replace Docker with Podman, and configure VSCode to use its VSCode DevContainer for both single and multiple-container scenarios.
-While this walkthrough is targeted for Windows WSL2 environment, it theoretically would work with other platforms (such as Linux and Intel Mac)
-1. Installing Podman Remove Docker Desktop
-Install Podman: https://www.redhat.com/sysadmin/podman-windows-wsl2
-. /etc/os-release sudo sh -c &amp;#34;echo &amp;#39;deb http://download.</description></item><item><title>Serving Hugo on Azure with Continuous Integration</title><link>https://blog.lifeishao.com/2017/09/25/serving-hugo-on-azure-with-continuous-integration/</link><pubDate>Mon, 25 Sep 2017 10:19:06 -0500</pubDate><guid>https://blog.lifeishao.com/2017/09/25/serving-hugo-on-azure-with-continuous-integration/</guid><description>Why? In my last post, I walked through how to configure your Azure blob and CDN to serve your static website. The deployment script outlined in that post is fine for a simple blog site. However, it is not a solution if you have a site that is contributed by multiple people. Everytime anyone pushes, they would get a merge conflict on the generated content, or they can force push and risk losing other changes.</description></item><item><title>Serving Your Static Sites with Azure Blob and CDN</title><link>https://blog.lifeishao.com/2017/05/24/serving-your-static-sites-with-azure-blob-and-cdn/</link><pubDate>Wed, 24 May 2017 16:25:52 -0500</pubDate><guid>https://blog.lifeishao.com/2017/05/24/serving-your-static-sites-with-azure-blob-and-cdn/</guid><description>Update: The Blob Storage team has implemented the Static Website feature. Please go check/try it out!
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hao&#39;s Blog</title>
+    <link>https://blog.lifeishao.com/</link>
+    <description>Recent content on Hao&#39;s Blog</description>
+    <image>
+      <title>Hao&#39;s Blog</title>
+      <url>https://blog.lifeishao.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.lifeishao.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 Dec 2021 15:44:52 +0000</lastBuildDate><atom:link href="https://blog.lifeishao.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Replacing Docker with Podman for your VSCode DevContainers</title>
+      <link>https://blog.lifeishao.com/post/vscode-replace-docker-with-podman/</link>
+      <pubDate>Thu, 30 Dec 2021 15:44:52 +0000</pubDate>
+      
+      <guid>https://blog.lifeishao.com/post/vscode-replace-docker-with-podman/</guid>
+      <description>This is a walkthrough of how to replace Docker with Podman, and configure VSCode to use its VSCode DevContainer for both single and multiple-container scenarios.</description>
+    </item>
+    
+    <item>
+      <title>Serving Hugo on Azure with Continuous Integration</title>
+      <link>https://blog.lifeishao.com/post/hugo-travis-blob-cdn/</link>
+      <pubDate>Mon, 25 Sep 2017 10:19:06 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/post/hugo-travis-blob-cdn/</guid>
+      <description>Let&amp;#39;s build a hugo site, continuously integrate it with Azure Blob and CDN using Travis CI</description>
+    </item>
+    
+    <item>
+      <title>Serving Your Static Sites with Azure Blob and CDN</title>
+      <link>https://blog.lifeishao.com/post/serving-static-sites-with-azure-blob-cdn/</link>
+      <pubDate>Wed, 24 May 2017 16:25:52 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/post/serving-static-sites-with-azure-blob-cdn/</guid>
+      <description>Update: The Blob Storage team has implemented the Static Website feature. Please go check/try it out!
 Problem I would like to store and serve this web site on Azure Blob Storage. Here are the criteria:
-Everything should be served from Blob Storage (No App Services, No VMs, and no Azure Functions) Clean URLs (blog.lifeishao.com instead of blog.lifeishao.com/index.html) Uses HTTPS (because SEO) Why? Performance If your website is just a bunch of static assets, it shouldn&amp;rsquo;t require a dedicated server to just serve your static assets.</description></item><item><title>Custom NodeJs Deployment on Azure Web App</title><link>https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app/</link><pubDate>Fri, 24 Mar 2017 17:05:17 -0500</pubDate><guid>https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app/</guid><description>One of the advantages of using Azure Web App is how easy it is to deploy a NodeJS app. If you have an app as simple as this one, Azure Web App will pick it up, install all the node dependencies, and serve the app on port 80. And you are done!!!
-Unfortunately, a lot of times, you might want to venture outside the comfort of auto-deploy land, and do some customization.</description></item><item><title>Serving Static Assets in Restify</title><link>https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify/</link><pubDate>Tue, 21 Mar 2017 17:02:21 -0500</pubDate><guid>https://blog.lifeishao.com/2017/03/21/serving-static-assets-in-restify/</guid><description>Serving Static Assets in Restify NodeJS While Restify is branded as a REST Framework, there are instances where we want to put a static html along with the API. For example, if we want to serve up the API documentation or built a Bot and serve up an UI.
-Four lines of Code If you are looking to serve up static assets from the root path(ie http://example.com/), and all your static assets are in the public directory, these are the four lines of code you need if you are using restify v5+</description></item><item><title>Gre Math Formulas</title><link>https://blog.lifeishao.com/2016/07/30/gre-math-formulas/</link><pubDate>Sat, 30 Jul 2016 13:40:15 -0500</pubDate><guid>https://blog.lifeishao.com/2016/07/30/gre-math-formulas/</guid><description>Introduction I&amp;rsquo;m making this for someone I care about.
-Fractions $ a/b * x/y = (ax) / (by) $
+Everything should be served from Blob Storage (No App Services, No VMs, and no Azure Functions) Clean URLs (blog.lifeishao.com instead of blog.lifeishao.com/index.html) Uses HTTPS (because SEO) Why? Performance If your website is just a bunch of static assets, it shouldn&amp;rsquo;t require a dedicated server to just serve your static assets.</description>
+    </item>
+    
+    <item>
+      <title>Custom NodeJs Deployment on Azure Web App</title>
+      <link>https://blog.lifeishao.com/post/advanced-nodejs-deployment-on-azure/</link>
+      <pubDate>Fri, 24 Mar 2017 17:05:17 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/post/advanced-nodejs-deployment-on-azure/</guid>
+      <description>One of the advantages of using Azure Web App is how easy it is to deploy a NodeJS app. If you have an app as simple as this one, Azure Web App will pick it up, install all the node dependencies, and serve the app on port 80. And you are done!!!
+Unfortunately, a lot of times, you might want to venture outside the comfort of auto-deploy land, and do some customization.</description>
+    </item>
+    
+    <item>
+      <title>Serving Static Assets in Restify</title>
+      <link>https://blog.lifeishao.com/post/serving-static-restify/</link>
+      <pubDate>Tue, 21 Mar 2017 17:02:21 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/post/serving-static-restify/</guid>
+      <description>Serving Static Assets in Restify NodeJS While Restify is branded as a REST Framework, there are instances where we want to put a static html along with the API. For example, if we want to serve up the API documentation or built a Bot and serve up an UI.
+Four lines of Code If you are looking to serve up static assets from the root path(ie http://example.com/), and all your static assets are in the public directory, these are the four lines of code you need if you are using restify v5+</description>
+    </item>
+    
+    <item>
+      <title>Gre Math Formulas</title>
+      <link>https://blog.lifeishao.com/post/gre-math-formulas/</link>
+      <pubDate>Sat, 30 Jul 2016 13:40:15 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/post/gre-math-formulas/</guid>
+      <description>Introduction I&amp;rsquo;m making this for someone I care about.
+Fractions $ a/b * x/y = (a*x) / (b*y) $
 $ a/(b/c) = (a*c) / b $
 $ (a/b)/c = a/(b*c) $
 $ 1/(1/y) = y $
@@ -15,6 +76,37 @@ $ 1/(a/b) = b/a $
 Factors $ (a + b) (a - b) = a^2 - b^2 $
 Fractals $ a^b * a^c = a^(b+c) $
 $ (a^b)^x = a^(b*x) $
-$ a^0 = 1 $ (when $ a !</description></item><item><title>Power of Transformers (not these robots ↑)</title><link>https://blog.lifeishao.com/2016/01/05/power-of-transformers/</link><pubDate>Tue, 05 Jan 2016 14:51:45 -0600</pubDate><guid>https://blog.lifeishao.com/2016/01/05/power-of-transformers/</guid><description>About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office. While the main functionalities were finalized, the app&amp;rsquo;s development was still in its infancy. This means that the API&amp;rsquo;s output and how it would be best-suited for the app&amp;rsquo;s consumption was still very much undefined.
-We had to use transformers to separate the API&amp;rsquo;s logic layer from its presentation.</description></item><item><title>Thoughts on Card Validate</title><link>https://blog.lifeishao.com/2016/01/05/thoughts-on-card-validate/</link><pubDate>Tue, 05 Jan 2016 13:57:34 -0600</pubDate><guid>https://blog.lifeishao.com/2016/01/05/thoughts-on-card-validate/</guid><description>I was looking at a small package that I wrote a few years ago, and I think it&amp;rsquo;s a good mental exercise to reevaluate my own code once in a while.
-Background The purpose of the package is to quickly check for the type of credit card given a small sample (say as a user is typing). Also validate the credit card again the Luhn algorithm which is the algorithm used by most CC companies.</description></item><item><title>Delivering Hugo with Dokku (and Docker)</title><link>https://blog.lifeishao.com/2015/12/03/delivering-hugo/</link><pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate><guid>https://blog.lifeishao.com/2015/12/03/delivering-hugo/</guid><description>I&amp;rsquo;m trying to learn how to use dokku to deploy this hugo site. &amp;hellip; and it&amp;rsquo;s deployed now!!</description></item></channel></rss>
+$ a^0 = 1 $ (when $ a !</description>
+    </item>
+    
+    <item>
+      <title>Power of Transformers (not these robots ↑)</title>
+      <link>https://blog.lifeishao.com/post/power-of-transformers/</link>
+      <pubDate>Tue, 05 Jan 2016 14:51:45 -0600</pubDate>
+      
+      <guid>https://blog.lifeishao.com/post/power-of-transformers/</guid>
+      <description>About a year ago, I was tasked to write an API for a mobile application for the Dean of Students office. While the main functionalities were finalized, the app&amp;rsquo;s development was still in its infancy. This means that the API&amp;rsquo;s output and how it would be best-suited for the app&amp;rsquo;s consumption was still very much undefined.
+We had to use transformers to separate the API&amp;rsquo;s logic layer from its presentation.</description>
+    </item>
+    
+    <item>
+      <title>Thoughts on Card Validate</title>
+      <link>https://blog.lifeishao.com/post/thoughts-on-card-validate/</link>
+      <pubDate>Tue, 05 Jan 2016 13:57:34 -0600</pubDate>
+      
+      <guid>https://blog.lifeishao.com/post/thoughts-on-card-validate/</guid>
+      <description>I was looking at a small package that I wrote a few years ago, and I think it&amp;rsquo;s a good mental exercise to reevaluate my own code once in a while.
+Background The purpose of the package is to quickly check for the type of credit card given a small sample (say as a user is typing). Also validate the credit card again the Luhn algorithm which is the algorithm used by most CC companies.</description>
+    </item>
+    
+    <item>
+      <title>Delivering Hugo with Dokku (and Docker)</title>
+      <link>https://blog.lifeishao.com/post/delivering-hugo/</link>
+      <pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate>
+      
+      <guid>https://blog.lifeishao.com/post/delivering-hugo/</guid>
+      <description>I&amp;rsquo;m trying to learn how to use dokku to deploy this hugo site. &amp;hellip; and it&amp;rsquo;s deployed now!!</description>
+    </item>
+    
+  </channel>
+</rss>

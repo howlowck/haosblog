@@ -1,2 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeJS on Hao's Blog</title><link>https://blog.lifeishao.com/tags/nodejs/</link><description>Recent content in NodeJS on Hao's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 24 Mar 2017 17:05:17 -0500</lastBuildDate><atom:link href="https://blog.lifeishao.com/tags/nodejs/index.xml" rel="self" type="application/rss+xml"/><item><title>Custom NodeJs Deployment on Azure Web App</title><link>https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app/</link><pubDate>Fri, 24 Mar 2017 17:05:17 -0500</pubDate><guid>https://blog.lifeishao.com/2017/03/24/custom-nodejs-deployment-on-azure-web-app/</guid><description>One of the advantages of using Azure Web App is how easy it is to deploy a NodeJS app. If you have an app as simple as this one, Azure Web App will pick it up, install all the node dependencies, and serve the app on port 80. And you are done!!!
-Unfortunately, a lot of times, you might want to venture outside the comfort of auto-deploy land, and do some customization.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>NodeJS on Hao&#39;s Blog</title>
+    <link>https://blog.lifeishao.com/tags/nodejs/</link>
+    <description>Recent content in NodeJS on Hao&#39;s Blog</description>
+    <image>
+      <title>Hao&#39;s Blog</title>
+      <url>https://blog.lifeishao.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.lifeishao.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Mar 2017 17:05:17 -0500</lastBuildDate><atom:link href="https://blog.lifeishao.com/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Custom NodeJs Deployment on Azure Web App</title>
+      <link>https://blog.lifeishao.com/post/advanced-nodejs-deployment-on-azure/</link>
+      <pubDate>Fri, 24 Mar 2017 17:05:17 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/post/advanced-nodejs-deployment-on-azure/</guid>
+      <description>One of the advantages of using Azure Web App is how easy it is to deploy a NodeJS app. If you have an app as simple as this one, Azure Web App will pick it up, install all the node dependencies, and serve the app on port 80. And you are done!!!
+Unfortunately, a lot of times, you might want to venture outside the comfort of auto-deploy land, and do some customization.</description>
+    </item>
+    
+  </channel>
+</rss>

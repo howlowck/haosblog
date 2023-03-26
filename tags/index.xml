@@ -1,1 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on Hao's Blog</title><link>https://blog.lifeishao.com/tags/</link><description>Recent content in Tags on Hao's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 25 Sep 2017 10:19:06 -0500</lastBuildDate><atom:link href="https://blog.lifeishao.com/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>Azure</title><link>https://blog.lifeishao.com/tags/azure/</link><pubDate>Mon, 25 Sep 2017 10:19:06 -0500</pubDate><guid>https://blog.lifeishao.com/tags/azure/</guid><description/></item><item><title>Deployment</title><link>https://blog.lifeishao.com/tags/deployment/</link><pubDate>Fri, 24 Mar 2017 17:05:17 -0500</pubDate><guid>https://blog.lifeishao.com/tags/deployment/</guid><description/></item><item><title>NodeJS</title><link>https://blog.lifeishao.com/tags/nodejs/</link><pubDate>Fri, 24 Mar 2017 17:05:17 -0500</pubDate><guid>https://blog.lifeishao.com/tags/nodejs/</guid><description/></item><item><title>evaluation</title><link>https://blog.lifeishao.com/tags/evaluation/</link><pubDate>Tue, 05 Jan 2016 14:51:45 -0600</pubDate><guid>https://blog.lifeishao.com/tags/evaluation/</guid><description/></item><item><title>response</title><link>https://blog.lifeishao.com/tags/response/</link><pubDate>Tue, 05 Jan 2016 14:51:45 -0600</pubDate><guid>https://blog.lifeishao.com/tags/response/</guid><description/></item><item><title>deploy</title><link>https://blog.lifeishao.com/tags/deploy/</link><pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate><guid>https://blog.lifeishao.com/tags/deploy/</guid><description/></item><item><title>docker</title><link>https://blog.lifeishao.com/tags/docker/</link><pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate><guid>https://blog.lifeishao.com/tags/docker/</guid><description/></item><item><title>dokku</title><link>https://blog.lifeishao.com/tags/dokku/</link><pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate><guid>https://blog.lifeishao.com/tags/dokku/</guid><description/></item><item><title>hugo</title><link>https://blog.lifeishao.com/tags/hugo/</link><pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate><guid>https://blog.lifeishao.com/tags/hugo/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Hao&#39;s Blog</title>
+    <link>https://blog.lifeishao.com/tags/</link>
+    <description>Recent content in Tags on Hao&#39;s Blog</description>
+    <image>
+      <title>Hao&#39;s Blog</title>
+      <url>https://blog.lifeishao.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.lifeishao.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Sep 2017 10:19:06 -0500</lastBuildDate><atom:link href="https://blog.lifeishao.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azure</title>
+      <link>https://blog.lifeishao.com/tags/azure/</link>
+      <pubDate>Mon, 25 Sep 2017 10:19:06 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deployment</title>
+      <link>https://blog.lifeishao.com/tags/deployment/</link>
+      <pubDate>Fri, 24 Mar 2017 17:05:17 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/tags/deployment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NodeJS</title>
+      <link>https://blog.lifeishao.com/tags/nodejs/</link>
+      <pubDate>Fri, 24 Mar 2017 17:05:17 -0500</pubDate>
+      
+      <guid>https://blog.lifeishao.com/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>evaluation</title>
+      <link>https://blog.lifeishao.com/tags/evaluation/</link>
+      <pubDate>Tue, 05 Jan 2016 14:51:45 -0600</pubDate>
+      
+      <guid>https://blog.lifeishao.com/tags/evaluation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>response</title>
+      <link>https://blog.lifeishao.com/tags/response/</link>
+      <pubDate>Tue, 05 Jan 2016 14:51:45 -0600</pubDate>
+      
+      <guid>https://blog.lifeishao.com/tags/response/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deploy</title>
+      <link>https://blog.lifeishao.com/tags/deploy/</link>
+      <pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate>
+      
+      <guid>https://blog.lifeishao.com/tags/deploy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://blog.lifeishao.com/tags/docker/</link>
+      <pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate>
+      
+      <guid>https://blog.lifeishao.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dokku</title>
+      <link>https://blog.lifeishao.com/tags/dokku/</link>
+      <pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate>
+      
+      <guid>https://blog.lifeishao.com/tags/dokku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://blog.lifeishao.com/tags/hugo/</link>
+      <pubDate>Thu, 03 Dec 2015 13:50:55 -0600</pubDate>
+      
+      <guid>https://blog.lifeishao.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
