@@ -10,8 +10,6 @@ categories: ["Azure", "nodejs"]
 tags: []
 ---
 
-# Serving Static Assets in Restify NodeJS
-
 While Restify is branded as a REST Framework, there are instances where we want to put a static html along with the API. For example, if we want to serve up the API documentation or built a Bot and serve up an UI.
 
 ## Four lines of Code
