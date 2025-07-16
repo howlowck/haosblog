@@ -1,0 +1,66 @@
+- title: "SemanticMediaWiki/Mermaid"
+  id: "semantic-wiki"
+  lang:
+    - PHP
+  url: "https://github.com/SemanticMediaWiki/Mermaid"
+  prs:
+    - title: "Upgraded Supported Mermaid Version"
+      url: "https://github.com/SemanticMediaWiki/Mermaid/pull/47"
+    - title: "Fixed Travis Tests"
+      url: "https://github.com/SemanticMediaWiki/Mermaid/pull/50"
+- title: "hashicorp/terraform-provider-azurerm"
+  id: "terraform-azure-provider"
+  lang:
+    - Golang
+  url: "https://github.com/hashicorp/terraform-provider-azurerm"
+  prs:
+    - title: "Added better support for Azure Function App"
+      url: "https://github.com/hashicorp/terraform-provider-azurerm/pull/11161"
+- title: "backstage/backstage"
+  id: "backstage"
+  lang:
+    - Typescript
+  url: "https://github.com/backstage/backstage"
+  prs:
+    - title: "Enable a single TaskWorker to run multiple concurrent tasks"
+      url: "https://github.com/backstage/backstage/pull/13817"
+- title: "microsoft/multi-agent-reference-architecture"
+  id: "multi-agent-reference"
+  lang:
+    - markdown
+  url: "https://github.com/microsoft/multi-agent-reference-architecture"
+  prs:
+    - title: "Added Agent Registry"
+      url: "https://github.com/microsoft/multi-agent-reference-architecture/pull/8"
+- title: "jaredwray/keyv"
+  id: "keyv"
+  lang:
+    - Typescript
+  url: "https://github.com/jaredwray/keyv"
+  prs:
+    - title: "Add support for Azure Tables"
+      url: "https://github.com/jaredwray/keyv/pull/189"
+- title: "containers/podman-compose"
+  id: "podman-compose"
+  lang: 
+    - Python
+  url: "https://github.com/containers/podman-compose"
+  prs:
+    - title: "Added more supported arguments"
+      url: "https://github.com/containers/podman-compose/pull/394"
+- title: "facebook/lexical"
+  id: "facebook-lexical"
+  lang:
+    - Typescript
+  url: "https://github.com/facebook/lexical"
+  prs:
+    - title: "Better Error Message for exportJSON type"
+      url: "https://github.com/facebook/lexical/pull/4556"
+- title: "Azure/azure-sdk-for-js"
+  id: "azure-sdk-for-js"
+  lang:
+    - Typescript
+  url: "https://github.com/Azure/azure-sdk-for-js"
+  prs:
+    - title: "Add file_ids to Thread operations in Assistant API"
+      url: "https://github.com/Azure/azure-sdk-for-js/pull/29519"

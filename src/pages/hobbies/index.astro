@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+
+const hobbies = await getCollection("hobbies");
+---
+
+<DefaultLayout>
+  <div class="container">
+    <h1 class="title is-1">Hobbies</h1>
+    <hr />
+    <div class="fixed-grid has-3-cols has-1-cols-mobile">
+      <div class="grid">
+        {
+          hobbies.map((item) => (
+            <a class="card" href={`/hobbies/${item.data.slug}`}>
+              <div class="card-image">
+                <figure class="image is-3by2">
+                  <Image
+                    src={item.data.cover}
+                    alt={item.data.title}
+                    width={300}
+                    height={200}
+                  />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">{item.data.title}</p>
+                  </div>
+                </div>
+
+                <div class="content">{item.data.description}</div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</DefaultLayout>

@@ -1,0 +1,210 @@
+---
+import { Icon } from "astro-icon/components";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
+const contributions = await getCollection("contributions");
+---
+
+<DefaultLayout>
+  <div class="container">
+    <h1 class="title is-1">Open Source Projects</h1>
+    <div>
+      <div class="tabs is-centered is-toggle is-toggle-rounded">
+        <ul>
+          <li id="project-tab-created" class="is-active"><a>Created</a></li>
+          <li id="project-tab-contributed"><a>Contributed (Public)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div
+      id="created-projects"
+      class="fixed-grid has-3-cols has-1-cols-mobile mt-5"
+    >
+      <div class="grid is-gap-3">
+        {projects.length === 0 && <p>No projects found.</p>}
+        {
+          projects.map((project) => (
+            <div class="cell project-card">
+              <div class="project-header">
+                <div class="project-title">
+                  <h2 class="title is-4">
+                    <div class="icon">
+                      <Icon name={project.data.lang[0].toLowerCase()} />
+                    </div>
+                    {project.data.title}
+                  </h2>
+                </div>
+                <div class="project-status" title={project.data.status}>
+                  <span class={`is-${project.data.status}`}>⬤</span>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-tags mb-2">
+                  {project.data.tags.map((tag: string) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+                <p>{project.data.description}</p>
+              </div>
+              <div class="project-footer">
+                <p class="info">
+                  <strong>Created:</strong> {project.data.created}
+                </p>
+                {project.data.url && (
+                  <p>
+                    <a
+                      href={project.data.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Project
+                    </a>
+                  </p>
+                )}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div id="contributed-projects" style="display: none;">
+      <ul class="contribution-list">
+        {contributions.length === 0 && <p>No contributions found.</p>}
+        {
+          contributions.map((contribution) => (
+            <li>
+              <div class="contribution-item is-flex is-justify-content-space-between ">
+                <div>
+                  <span class="icon">
+                    <Icon name={contribution.data.lang[0].toLowerCase()} />
+                  </span>
+                  <a
+                    href={contribution.data.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {contribution.data.title}
+                  </a>
+                </div>
+                <ul class="pr-list">
+                  {contribution.data.prs.map((pr) => (
+                    <li>
+                      <Icon name="merged" />
+                      <a
+                        href={pr.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {pr.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</DefaultLayout>
+
+<style>
+  .project-card {
+    border: 1px solid #777;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .project-card .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .project-card .project-title {
+    flex-grow: 1;
+  }
+
+  .project-card .project-status .is-active {
+    color: green;
+  }
+  .project-card .project-status .is-wip {
+    color: purple;
+  }
+  .project-card .project-status .is-archived {
+    color: red;
+  }
+  .project-card .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .project-card .project-content {
+    flex-grow: 1;
+  }
+  .project-card .project-footer {
+    margin-top: 1rem;
+    display: flex;
+  }
+
+  .project-card .project-footer .info {
+    flex-grow: 1;
+  }
+
+  .contribution-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .contribution-list .contribution-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #888;
+  }
+
+  .contribution-list .contribution-item .pr-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const createdTab = document.getElementById("project-tab-created");
+    const contributedTab = document.getElementById("project-tab-contributed");
+    const createdProjects = document.getElementById("created-projects");
+    const contributedProjects = document.getElementById("contributed-projects");
+    if (
+      !createdTab ||
+      !contributedTab ||
+      !createdProjects ||
+      !contributedProjects
+    ) {
+      return;
+    }
+    createdTab.addEventListener("click", () => {
+      createdTab.classList.add("is-active");
+      contributedTab.classList.remove("is-active");
+      createdProjects.style.display = "block";
+      contributedProjects.style.display = "none";
+    });
+
+    contributedTab.addEventListener("click", () => {
+      contributedTab.classList.add("is-active");
+      createdTab.classList.remove("is-active");
+      createdProjects.style.display = "none";
+      contributedProjects.style.display = "block";
+    });
+  });
+</script>

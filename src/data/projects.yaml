@@ -1,0 +1,113 @@
+- title: "Mdbook Selfpath"
+  id: "mdbook-selfpath"
+  created: 2025
+  type: package
+  description: "A mdbook processor to include path of the source markdown file in the generated content"
+  status: "active"
+  lang:
+    - Rust
+  tags:
+    - Package
+    - Documentation
+  url: "https://github.com/howlowck/mdbook-selfpath"
+- title: "String to Position"
+  id: "strings-to-positions"
+  created: 2025
+  type: package
+  description: "A zero-dependency python package that takes chunks and the source text, and returns the position of the chunks (with heuristics)"
+  status: "active"
+  lang: 
+    - Python
+  tags:
+    - GenAI
+    - Embedding
+  url: "https://pypi.org/project/strings-to-positions/"
+- title: "Genie"
+  id: "genie"
+  created: 2024
+  type: webapp
+  description: "A No-Install instant application to try out different GenAI models with auto-tool call and structured output"
+  status: "active"
+  lang: 
+    - Typescript
+  tags:
+    - GenAI
+    - Developer Tool
+  url: "https://github.com/howlowck/genie"
+- title: "UnGen"
+  id: "ungen"
+  created: 2023
+  type: package
+  description: "Turning your executible code into template code for code generation"
+  status: "active"
+  lang: 
+    - Golang
+  tags:
+    - Automation
+    - Template Engine
+    - DSL
+  url: "https://github.com/howlowck/ungen"
+- title: "Common Catalog Schema"
+  id: "common-catalog-schema"
+  created: 2019
+  type: json-schema
+  description: "A JSON Schema for describing catalog data"
+  status: "active"
+  lang:
+    - Typescript
+    - JSON
+  tags:
+    - Data Modeling
+    - Graph Data
+  url: "https://github.com/howlowck/common-catalog-schema"
+- title: "PowerBI React"
+  id: "powerbi-react"
+  created: 2018
+  type: package
+  status: "archived"
+  lang: 
+    - JavaScript
+  tags:
+    - PowerBI
+    - React
+  description: "A React component for embedding PowerBI reports"
+  url: "https://github.com/howlowck/powerbi-react"
+- title: "Wolf"
+  id: "wolf-core"
+  created: 2017
+  type: package
+  description: "A Declarative Framework for building task orientated chatbots"
+  status: "archived"
+  lang: 
+    - Typescript
+  url: "https://github.com/wolf-packs/wolf-core"
+  tags:
+    - Chatbot
+    - Declarative Programming
+- title: "Responsive Wireframe"
+  id: "rwdwire"
+  type: webapp
+  description: "A tool for designers who want to make responsive web design wireframe quickly and be able to share with others easily."
+  status: "archived"
+  lang: 
+    - JavaScript
+    - PHP
+  created: 2014
+  tags:
+    - Design
+    - Wireframe
+    - Responsive Design
+  url: "https://github.com/howlowck/rwdwire"
+- title: "Akbar"
+  id: "akbar"
+  type: tool
+  description: "A bookmarklet that simulates various types of users with disabilities"
+  status: "active"
+  lang: 
+    - JavaScript
+  created: 2013
+  tags:
+    - Web Accessibility
+    - Bookmarklet
+    - Education Tool
+  url: "https://github.com/howlowck/Akbar"

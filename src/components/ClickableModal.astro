@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type DivProps = HTMLAttributes<"div">;
+
+interface Props extends DivProps {
+  targetId: string;
+}
+
+const { targetId, class: className, ...props } = Astro.props;
+---
+
+<button class="js-modal-trigger" data-target={targetId}>
+  <slot name="trigger" />
+</button>
+<div id={targetId} class:list={[className, "modal"]} {...props}>
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <slot />
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>

@@ -1,0 +1,23 @@
+<div id="comments"></div>
+<script>
+  (function () {
+    const currentTheme = localStorage.getItem("theme") || "dark";
+    var d = document,
+      s = d.createElement("script");
+    s.src = "https://giscus.app/client.js";
+    s.dataset.repo = "howlowck/haosblog";
+    s.dataset.repoId = "MDEwOlJlcG9zaXRvcnk0NzY0OTcyNQ==";
+    s.dataset.category = "Articles";
+    s.dataset.categoryId = "DIC_kwDOAtcTvc4CVKBR";
+    s.dataset.mapping = "og:title";
+    s.dataset.reactionsEnabled = "1";
+    s.dataset.emitMetadata = "0";
+    s.dataset.inputPosition = "top";
+    s.dataset.theme = currentTheme;
+    s.dataset.lang = "en";
+    s.dataset.loading = "lazy";
+    s.setAttribute("crossorigin", "anonymous");
+    s.async = true;
+    d.getElementById("comments")?.appendChild(s);
+  })();
+</script>

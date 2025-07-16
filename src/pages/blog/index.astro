@@ -1,0 +1,62 @@
+---
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import { Image } from "astro:assets";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const [firstPost, ...otherPosts] = posts;
+---
+
+<DefaultLayout>
+  <section class="container">
+    <h1 class="title is-1">Blog</h1>
+    <hr />
+    <div class="block">
+      <a href={`/blog/${firstPost.id}/`} class="has-text-centered">
+        {
+          firstPost.data.heroImage && (
+            <Image
+              class="my-0 mx-auto is-block"
+              width={720}
+              height={360}
+              src={firstPost.data.heroImage}
+              alt=""
+            />
+          )
+        }
+        <h4 class="title is-4 mb-0">{firstPost.data.title}</h4>
+        <p class="date has-text-grey">
+          <FormattedDate date={firstPost.data.pubDate} />
+        </p>
+      </a>
+    </div>
+    <div class="fixed-grid has-2-cols has-1-cols-mobile">
+      <div class="grid">
+        {
+          otherPosts.map((post) => (
+            <div class="cell block has-text-centered">
+              <a href={`/blog/${post.id}/`}>
+                {post.data.heroImage && (
+                  <Image
+                    width={720}
+                    height={360}
+                    src={post.data.heroImage}
+                    alt=""
+                  />
+                )}
+                <h4 class="title is-4 mb-0">{post.data.title}</h4>
+                <p class="date has-text-grey">
+                  <FormattedDate date={post.data.pubDate} />
+                </p>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</DefaultLayout>

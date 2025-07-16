@@ -1,0 +1,113 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getHobbyImages } from "../../utils/images";
+import { Image } from "astro:assets";
+import ClickableModal from "../../components/ClickableModal.astro";
+
+export async function getStaticPaths() {
+  const hobbies = await getCollection("hobbies");
+  return hobbies.map((hobby) => ({
+    params: { slug: hobby.data.slug },
+    props: { hobby },
+  }));
+}
+
+const { hobby } = Astro.props;
+
+const images: ImageMetadata[] = await getHobbyImages(hobby.data.slug);
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={hobby.data.title} description={hobby.data.description} />
+    <style>
+      main {
+        width: calc(100% - 2em);
+        max-width: 100%;
+        margin: 0;
+      }
+      .hero-image {
+        width: 100%;
+      }
+      .hero-image img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: var(--box-shadow);
+      }
+      .prose {
+        width: 720px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 1em;
+        color: rgb(var(--gray-dark));
+      }
+      .title {
+        margin-bottom: 1em;
+        padding: 1em 0;
+        text-align: center;
+        line-height: 1;
+      }
+      .title h1 {
+        margin: 0 0 0.5em 0;
+      }
+      .date {
+        margin-bottom: 0.5em;
+        color: rgb(var(--gray));
+      }
+      .last-updated-on {
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header />
+    <main>
+      <div class="container">
+        <div class="title">
+          <h1>{hobby.data.title}</h1>
+          <hr />
+          <div class="fixed-grid has-3-cols has-1-cols-mobile">
+            <div class="grid">
+              {
+                images.map((image) => {
+                  const filename = image.src
+                    .split("/")
+                    .pop()
+                    ?.replace(/\.[^/.]+$/, "");
+                  if (!filename) return null;
+                  return (
+                    <div class="cell">
+                      <ClickableModal targetId={`image-${filename}`}>
+                        <Fragment slot="trigger">
+                          <Image
+                            class="hero-image"
+                            src={image}
+                            alt={`image from hobby ${hobby.data.title}`}
+                            loading="eager"
+                          />
+                        </Fragment>
+                        <Image
+                          src={image}
+                          format="avif"
+                          alt={`image from hobby ${hobby.data.title}`}
+                          loading={"eager"}
+                        />
+                      </ClickableModal>
+                    </div>
+                  );
+                })
+              }
+            </div>
+          </div>
+        </div>
+        <slot />
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

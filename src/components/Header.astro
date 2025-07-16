@@ -1,0 +1,169 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { Icon } from "astro-icon/components";
+import { SITE_TITLE } from "../consts";
+---
+
+<header>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">{SITE_TITLE}</a>
+      <a
+        role="button"
+        class="navbar-burger"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu has-text-centered-touch">
+      <div class="navbar-start">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/projects">Projects</HeaderLink>
+        <HeaderLink href="/hobbies">Hobbies</HeaderLink>
+      </div>
+      <div class="navbar-end">
+        <div id="theme-selection" class="dropdown is-right">
+          <div class="dropdown-trigger has-text-centered">
+            <button
+              id="theme-button"
+              class="button is-medium"
+              style="border:none"
+              aria-haspopup="true"
+              aria-controls="dropdown-menu"
+            >
+              <span id="dark-icon" class="icon is-hidden">
+                <Icon name="moon" />
+              </span>
+              <span id="light-icon" class="icon is-hidden">
+                <Icon name="sun" />
+              </span>
+              <span id="system-icon" class="icon is-hidden">
+                <Icon name="computer" />
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <a id="select-light" class="dropdown-item">
+                <span class="icon"><Icon name="sun" /></span> Light Mode
+              </a>
+              <a id="select-system" class="dropdown-item">
+                <span class="icon"><Icon name="computer" /></span> System Setting
+              </a>
+              <a id="select-dark" class="dropdown-item">
+                <span class="icon"><Icon name="moon" /></span> Dark Mode
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(
+      document.querySelectorAll(".navbar-burger"),
+      0
+    );
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach((el) => {
+      el.addEventListener("click", () => {
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle("is-active");
+        if ($target) {
+          $target.classList.toggle("is-active");
+        }
+      });
+    });
+
+    // theme selection toggle
+    const themeButton = document.getElementById("theme-button");
+    const themeSelection = document.getElementById("theme-selection");
+    if (themeButton && themeSelection) {
+      themeButton.addEventListener("click", () => {
+        themeSelection.classList.toggle("is-active");
+      });
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (event) => {
+        if (!themeSelection.contains(event.target as Node)) {
+          themeSelection.classList.remove("is-active");
+        }
+      });
+    }
+    // Theme selection logic
+    const selectLight = document.getElementById("select-light");
+    const selectSystem = document.getElementById("select-system");
+    const selectDark = document.getElementById("select-dark");
+
+    selectLight?.addEventListener("click", () => {
+      (window as any).setTheme("light");
+      themeSelection && themeSelection.classList.remove("is-active");
+    });
+    selectSystem?.addEventListener("click", () => {
+      (window as any).setTheme("system");
+      themeSelection && themeSelection.classList.remove("is-active");
+    });
+    selectDark?.addEventListener("click", () => {
+      (window as any).setTheme("dark");
+      themeSelection && themeSelection.classList.remove("is-active");
+    });
+    // update icon based on current theme
+    const currentTheme = localStorage.getItem("theme") || "system";
+    const darkIcon = document.getElementById("dark-icon");
+    const lightIcon = document.getElementById("light-icon");
+    const systemIcon = document.getElementById("system-icon");
+    if (darkIcon && lightIcon && systemIcon) {
+      if (currentTheme === "dark") {
+        darkIcon.classList.remove("is-hidden");
+        lightIcon.classList.add("is-hidden");
+        systemIcon.classList.add("is-hidden");
+      } else if (currentTheme === "light") {
+        darkIcon.classList.add("is-hidden");
+        lightIcon.classList.remove("is-hidden");
+        systemIcon.classList.add("is-hidden");
+      } else {
+        darkIcon.classList.add("is-hidden");
+        lightIcon.classList.add("is-hidden");
+        systemIcon.classList.remove("is-hidden");
+      }
+    }
+    // observe theme changes
+    const observer = new MutationObserver(() => {
+      const currentTheme = localStorage.getItem("theme") || "system";
+      if (darkIcon && lightIcon && systemIcon) {
+        if (currentTheme === "dark") {
+          darkIcon.classList.remove("is-hidden");
+          lightIcon.classList.add("is-hidden");
+          systemIcon.classList.add("is-hidden");
+        } else if (currentTheme === "light") {
+          darkIcon.classList.add("is-hidden");
+          lightIcon.classList.remove("is-hidden");
+          systemIcon.classList.add("is-hidden");
+        } else {
+          darkIcon.classList.add("is-hidden");
+          lightIcon.classList.add("is-hidden");
+          systemIcon.classList.remove("is-hidden");
+        }
+      }
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  });
+</script>
