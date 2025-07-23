@@ -1,12 +1,28 @@
 ---
+import { Image } from "astro:assets";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import headshotImage from "../assets/core/headshot.jpg";
 ---
 
 <DefaultLayout>
   <section class="section">
     <div class="container">
-      <h1 class="title">👋 Hello!</h1>
-      <p class="subtitle">Welcome to my Blog and Hobbies Portfolio</p>
+      <div class="welcome is-flex is-flex-direction-row is-align-items-center">
+        <figure class="image is-128x128 mr-4">
+          <Image
+            src={headshotImage}
+            alt="Hao's profile picture"
+            width={128}
+            height={128}
+            class="is-rounded"
+          />
+        </figure>
+        <h1 class="title is-4">Hello! My Name is Hao.</h1>
+      </div>
+      <p class="is-size-4">
+        This is my site where I showcase and share some of my projects, hobbies
+        and thoughts. Feel free to look around!
+      </p>
     </div>
   </section>
 </DefaultLayout>

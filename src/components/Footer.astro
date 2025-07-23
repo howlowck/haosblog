@@ -3,11 +3,26 @@ import { Icon } from "astro-icon/components";
 const today = new Date();
 ---
 
-<footer class="has-text-centered">
+<footer class="container has-text-centered mt-8">
   &copy; {today.getFullYear()} Hao Luo. All rights reserved.
-  <div>
+  <div
+    id="social-links"
+    class="is-flex is-justify-content-center is-align-items-center mt-2"
+  >
     <a href="https://github.com/howlowck" target="_blank">
-      <Icon name="github" />
+      <Icon size={25} name="github" />
+    </a>
+    <a href="https://linkedin.com/in/haoluo12" target="_blank">
+      <Icon size={25} name="linkedin" />
+    </a>
+    <a href="https://instagram.com/lifeishao" target="_blank">
+      <Icon size={25} name="instagram" />
     </a>
   </div>
 </footer>
+
+<style>
+  #social-links {
+    gap: 1rem;
+  }
+</style>
