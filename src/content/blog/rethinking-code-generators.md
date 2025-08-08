@@ -1,6 +1,6 @@
 ---
 title: "Rethinking Code Generators"
-pubDate: 2023-03-26T12:00:06-05:00
+pubDate: 2025-08-06T12:00:06-05:00
 heroImage: "../../assets/blog/rethinking-code-generators.png"
 description: "Is there anything we can do for a better code generation experience?"
 ---
@@ -150,10 +150,6 @@ Now imagine you have a magic wand where you have the power to create new cars ba
 We wouldn't need to build the complicated factories anymore.  
 **UnGen gives you that power with your code**.  
 
-## A Word on GenAI
-
-Generative AI has caused seismic shifts within the software development world (or just world in general). And I believe that's a good and exciting thing. At the same time, I believe there is still a space for declarative language and new deterministic tooling like UnGen to exist. 
-
 ## UnGen Usage Patterns
 
 Since UnGen is just a simple cli tool that reads UnGen commands (comments in your code) and generates new code, it's an extremely flexible tool.
@@ -170,8 +166,6 @@ Here are some potential patterns you can use UnGen to create new projects
 | Repo Size  | Medium | Any | Large |
 | Primary UnGen Operation| Transform | Transform | Remove |
 
-<br />
-
 ## Tooling
 
 Along with the UnGen tool, I also created some tooling around using this tool:
@@ -182,3 +176,6 @@ Along with the UnGen tool, I also created some tooling around using this tool:
 
 If you are here at this point of the post, thank you for reading, and hopefully you are willing to try out UnGen (or agree with the shortcomings of the current way of generating code). If so, check out [UnGen](https://github.com/howlowck/ungen) and drop a comment, let me know what you think!
 
+# A quick aside on GenAI: 
+
+Generative AI has caused seismic shifts within the software development world (or just world in general). And I believe that's a good and exciting thing. At the same time, I believe there is still a space for declarative language and new deterministic tooling like UnGen. In fact, I believe by creating declarative tools like UnGen allows GenAI to be even more useful. In the future, maybe we don't have to write the UnGen commands, a GenAI model can identify points in an existing code and annotate the places with UnGen commands. You can then evaluate its validity and make changes making the code generation process controlled and predictable.
