@@ -13,8 +13,11 @@ const hobbies = await getCollection("hobbies");
     <div class="fixed-grid has-3-cols has-1-cols-mobile">
       <div class="grid">
         {
-          hobbies.map((item) => (
-            <a class="card" href={`/hobbies/${item.data.slug}`}>
+          hobbies.map((item, i, arr) => (
+            <a
+              class={`card ${arr.length - 1 === i ? "mb-5" : ""}`}
+              href={`/hobbies/${item.data.slug}`}
+            >
               <div class="card-image">
                 <figure class="image is-3by2">
                   <Image
