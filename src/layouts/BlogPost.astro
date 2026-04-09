@@ -67,7 +67,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
   article .content .title {
     font-size: 2rem;
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.8);
   }
 
   :global([data-theme="dark"]) article .content {
@@ -75,6 +75,24 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   }
 
   :global([data-theme="dark"]) article .content .title {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    article .content {
+      color: white;
+    }
+
+    article .content .title {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  :global([data-theme="light"]) article .content {
+    color: black;
+  }
+
+  :global([data-theme="light"]) article .content .title {
+    color: rgba(0, 0, 0, 0.8);
   }
 </style>
