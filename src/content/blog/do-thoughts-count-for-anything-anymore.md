@@ -21,7 +21,7 @@ AI-assisted means a human directs the process. You write a draft, then use AI to
 
 AI-autonomous means the agent acts on your behalf, and you may never meaningfully touch the output. It reads your inbox and replies. It posts on your social media. It sends the birthday message. The human's role is, at best, to set a goal and approve a result. Increasingly, even the approval step is being automated away.
 
-This distinction matters because the argument here is not that every use of AI flattens human meaning. It is that autonomy changes the meaning of communication when the communication itself is an act of care, judgment, or presence. A birthday message, difficult feedback, a note to a grieving friend, a thoughtful essay, these do not only carry information. They also carry evidence that someone was there.
+This distinction matters because the argument here is not that every use of AI flattens human meaning. It is that autonomy changes the meaning of communication when the communication itself is an act of care, judgment, or presence. A birthday message, difficult feedback, a note to a grieving friend, a thoughtful analysis or proposal, these do not only carry information. They also carry evidence that someone was there.
 
 The problem is that the autonomous case has no real disclosure infrastructure. When an agent posts a message on your behalf, sends an email, or leaves a comment, there is often no technical or social signal that tells the receiver whether a human was involved. The receiver has no clean way to calibrate what they are looking at.
 
