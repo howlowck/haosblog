@@ -1,3 +1,27 @@
+- title: "oh-my-lotr"
+  id: "oh-my-lotr"
+  created: 2026
+  type: package
+  description: "An agent plugin for Copilot CLI and VS Code Copilot. Join the Fellowship."
+  status: "active"
+  lang:
+    - Python
+  tags:
+    - Coding Agent
+    - Agent Plugin
+  url: "https://howlowck.github.io/oh-my-lotr/"
+- title: "agext-cli"
+  id: "agext-cli"
+  created: 2026
+  type: tool
+  description: "CLI tool to extend VS Code Copilot agent plugins with repo-specific overrides."
+  status: "active"
+  lang:
+    - Typescript
+  tags:
+    - Coding Agent
+    - CLI Tool
+  url: "https://www.npmjs.com/package/agext-cli"
 - title: "Mdbook Selfpath"
   id: "mdbook-selfpath"
   created: 2025

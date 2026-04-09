@@ -58,3 +58,23 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<style>
+  article .content {
+    font-size: 1.5rem;
+    color: black;
+  }
+
+  article .content .title {
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  :global([data-theme="dark"]) article .content {
+    color: white;
+  }
+
+  :global([data-theme="dark"]) article .content .title {
+    color: rgba(255, 255, 255, 0.7);
+  }
+</style>

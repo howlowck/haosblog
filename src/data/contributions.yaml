@@ -1,3 +1,11 @@
+- title: "microsoft/agent-framework"
+  id: "microsoft-agent-framework"
+  lang:
+    - Python
+  url: "https://github.com/microsoft/agent-framework"
+  prs:
+    - title: "AG-UI support for service-managed threads"
+      url: "https://github.com/microsoft/agent-framework"
 - title: "SemanticMediaWiki/Mermaid"
   id: "semantic-wiki"
   lang:
