@@ -85,6 +85,8 @@ Second, **we need better disclosure around autonomous communication**. The curre
 
 Third, **we need a clearer instinct for the difference between busy work and value work**. Not every task deserves your full attention. Filing expense reports, scheduling meetings, formatting documents, these are tasks where your identity adds very little to the output. Delegate freely. But writing a message to your team after a hard quarter, giving feedback to someone you manage, responding to a friend going through a difficult time, these are tasks where **you** are the point.
 
+Lastly, as a reader, **default to assuming the message is human-authored**, especially in personal or work settings. Just like when we have to acknowledge and fight against our unconscious bias, we should try to engage with long written ideas even when it feels "AI-generated". It's better to engage than to dismiss it and lose the insight altogether. 
+
 These are partial measures. They do not solve the recursive loop problem or the economics of attention farming. But they move the tool back toward augmentation and away from replacement.
 
 ## An Inflection Point
